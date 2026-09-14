@@ -1,0 +1,10 @@
+---
+interface Props {alt: string}
+const {alt} = Astro.props;
+const letters = ['100001111011110', '100001000010001', '100001000010001', '100001110011110', '100001000010000', '100001000010000', '111101000010000'];
+const blocks = letters.flatMap((row,y) => [...row].map((bit,x) => ({bit,x,y}))).filter(({bit})=>bit === '1');
+---
+<svg class="h-auto w-full" viewBox="0 0 520 300" role="img" aria-label={alt} xmlns="http://www.w3.org/2000/svg">
+  <title>{alt}</title>
+  {blocks.map(({x,y},i) => <rect x={38 + x * 29} y={45 + y * 29} width="18" height="18" fill="#3157ff" opacity={.85 + (i%2)*.15} />)}
+</svg>

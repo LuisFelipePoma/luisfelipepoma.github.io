@@ -1,0 +1,15 @@
+---
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+import Hero from './Hero.astro';
+import ProjectFeature from './ProjectFeature.astro';
+import About from './About.astro';
+import Contact from './Contact.astro';
+import {cases, copy, type Locale} from '../data/portfolio';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+---
+<PortfolioLayout locale={locale}>
+  <Hero locale={locale} />
+  <section id="trabajo" class="selected-work" aria-labelledby="work-title"><h2 class="sr-only" id="work-title">{copy[locale].selected} — {copy[locale].selectedCount}</h2>{cases.map((project,index)=><ProjectFeature project={project} index={index} locale={locale} />)}</section>
+  <About locale={locale} /><Contact locale={locale} />
+</PortfolioLayout>

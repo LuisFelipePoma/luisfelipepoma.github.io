@@ -1,7 +1,17 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://felipepoma.github.io'
+	site: 'https://luisfelipepoma.github.io',
+	output: 'static',
+	vite: { plugins: [tailwindcss()] },
+	devToolbar: { enabled: false },
+	trailingSlash: 'always',
+	i18n: {
+		defaultLocale: 'es',
+		locales: ['es', 'en'],
+		routing: { prefixDefaultLocale: false }
+	}
 });

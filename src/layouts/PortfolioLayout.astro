@@ -1,0 +1,39 @@
+---
+import {getImage} from 'astro:assets';
+import {getAbsoluteLocaleUrl} from 'astro:i18n';
+import paper from '../assets/paper.png';
+import {copy, profile, type Locale} from '../data/portfolio';
+import Navigation from '../components/Navigation.astro';
+import Action from '../components/Action.astro';
+import '../styles/tailwind.css';
+import {container, metadata, focus} from '../styles/patterns';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+const t = copy[locale];
+const texture = await getImage({src:paper,width:256,format:'webp',quality:60});
+const canonical = getAbsoluteLocaleUrl(locale);
+---
+<!doctype html>
+<html lang={locale} class="group scroll-smooth scroll-pt-4 [scrollbar-color:#11110f_#f2efe7] [scrollbar-width:thin] motion-reduce:scroll-auto md:scroll-pt-6 data-[motion=reduced]:scroll-auto [&[data-motion=reduced]_*]:transition-none">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content={Astro.generator} />
+    <title>{t.metaTitle}</title><meta name="description" content={t.metaDescription} /><meta name="theme-color" content="#f2efe7" />
+    <link rel="canonical" href={canonical} /><link rel="alternate" hreflang="es" href={getAbsoluteLocaleUrl('es')} /><link rel="alternate" hreflang="en" href={getAbsoluteLocaleUrl('en')} /><link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl('es')} />
+    <meta property="og:type" content="website" /><meta property="og:title" content={t.metaTitle} /><meta property="og:description" content={t.metaDescription} /><meta property="og:url" content={canonical} /><meta property="og:locale" content={locale === 'es' ? 'es_PE' : 'en_US'} /><meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_PE'} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="preload" href="/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin /><link rel="preload" href="/fonts/commit-mono.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@type':'Person',name:profile.name,url:Astro.site?.href,email:'mailto:' + profile.email,sameAs:[profile.github,profile.linkedin],jobTitle:'Software Engineer'})} />
+  </head>
+  <body class="m-0 bg-paper font-sans text-lg leading-normal text-ink antialiased selection:bg-electric selection:text-paper [&_svg]:shrink-0 [&_[hidden]]:hidden [&_a]:touch-manipulation [&_button]:touch-manipulation [&_button]:caret-electric">
+    <div class="pointer-events-none fixed inset-0 z-8 bg-repeat opacity-12 mix-blend-multiply [filter:sepia(1)_hue-rotate(180deg)_saturate(2)]" style={"background-image:url('" + texture.src + "')"} aria-hidden="true"></div>
+    <a class:list={['skip-link fixed top-4 left-4 z-20 -translate-y-[200%] bg-electric px-6 py-3 text-paper focus:translate-y-0',focus]} href="#contenido">{t.skip}</a>
+    <Navigation locale={locale} />
+    <main id="contenido"><slot /></main>
+    <footer class:list={[container,metadata,'site-footer relative z-2 flex flex-col items-start gap-2 border-t border-rule py-6 text-[10px] text-muted md:flex-row md:items-center md:justify-between md:gap-6 md:text-xs [&_.action]:font-mono [&_.action]:text-[10px] md:[&_.action]:text-xs']} data-cloud-quiet><span>© {new Date().getFullYear()} · Luis Felipe Poma Astete</span><button class:list={['motion-toggle cursor-pointer border-0 bg-transparent py-2 underline underline-offset-4 hover:text-electric aria-pressed:text-electric disabled:cursor-default',focus]} type="button" aria-pressed="false" data-motion-toggle data-system-label={t.systemMotion} hidden>{t.reduceMotion}</button><Action href="#inicio" icon="up">{t.backTop}</Action></footer>
+    <canvas class="matter-canvas pointer-events-none fixed inset-0 z-1 hidden h-full w-full" aria-hidden="true" data-matter-canvas></canvas>
+    <script>
+      import {initializePortfolio} from '../scripts/portfolio';
+      initializePortfolio();
+    </script>
+  </body>
+</html>

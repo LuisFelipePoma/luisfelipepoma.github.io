@@ -1,0 +1,16 @@
+---
+import {copy, profile, tools, type Locale} from '../data/portfolio';
+import MatterMark from './MatterMark.astro';
+import {container, metadata, sectionHeading} from '../styles/patterns';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+const t = copy[locale];
+---
+<section class:list={[container,'about relative z-2 border-t border-rule py-16 md:py-24']} id="sobre-mi" aria-labelledby="about-title" data-scene="about">
+  <div class="about-intro flex flex-col gap-6 md:grid md:grid-cols-12 lg:gap-12">
+    <div class="md:col-span-8" data-cloud-quiet><h2 class={sectionHeading} id="about-title">{t.aboutHeading}</h2><p class="about-bio mt-6 max-w-[70ch] text-xl leading-normal text-pretty md:mt-8 md:text-[22px] lg:text-2xl">{profile.bio[locale]}</p><p class:list={[metadata,'education mt-6 text-[10px] text-muted md:mt-8 md:text-xs']}>{profile.name}<br />{t.education}</p></div>
+    <div class="about-visual w-full max-w-[400px] md:col-span-4 md:self-center" data-cloud-quiet><MatterMark alt={t.markAlt} /></div>
+  </div>
+  <h3 class="tools-heading mt-8 mb-6 text-[22px] font-semibold tracking-[-.02em] md:mt-16 md:text-2xl" data-cloud-quiet>{t.toolsHeading}</h3>
+  <div class="tools-grid grid grid-cols-1 gap-6 border-t border-rule pt-6 md:grid-cols-4 md:gap-8" data-cloud-quiet>{tools.map(group => <div class="tool-group grid grid-cols-[1fr_1.45fr] gap-4 md:block"><h4 class:list={[metadata,'mt-1 text-[10px] font-normal text-muted uppercase md:mt-0 md:mb-4 md:text-xs']}>{group.title[locale]}</h4><ul class="text-lg leading-[1.65] md:text-xl md:leading-[1.8]">{group.items.map(tool=><li>{tool}</li>)}</ul></div>)}</div>
+</section>

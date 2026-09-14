@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Felipe — Software Engineer / Digital Matter Portfolio</title>
+<meta name="description" content="Portfolio experimental con point clouds, dither, voxel art y transiciones de partículas." />
+<style>
+  :root{
+    --bg:#f2efe7;
+    --ink:#11110f;
+    --muted:#77746b;
+    --line:rgba(17,17,15,.15);
+    --accent:#3157ff;
+    --panel:rgba(242,239,231,.78);
+    --max:1440px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+  canvas#matter{
+    position:fixed;inset:0;width:100%;height:100%;z-index:0;
+    pointer-events:none;
+  }
+  .noise{
+    position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.22;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+  }
+  header{
+    position:fixed;z-index:20;left:0;right:0;top:0;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 26px;border-bottom:1px solid transparent;
+    backdrop-filter:blur(10px);
+  }
+  header.scrolled{
+    background:rgba(242,239,231,.66);border-color:var(--line);
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:-.02em;
+  }
+  .brand-dot{
+    width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(49,87,255,.1);
+  }
+  .nav{display:flex;gap:22px;font:500 12px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase}
+  .nav a{opacity:.66}.nav a:hover{opacity:1}
+  main{position:relative;z-index:2}
+  .wrap{width:min(calc(100% - 52px),var(--max));margin:auto}
+  section{
+    min-height:100vh;position:relative;display:flex;align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .hero{padding-top:80px}
+  .hero-grid{
+    width:100%;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+    gap:56px;align-items:end;padding:72px 0 54px;
+  }
+  .eyebrow{
+    font:500 12px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(68px,10.8vw,175px);line-height:.82;letter-spacing:-.075em;
+    font-weight:650;margin:0;max-width:1050px;
+  }
+  h1 .outline{
+    color:transparent;-webkit-text-stroke:1.5px var(--ink);opacity:.8;
+  }
+  .hero-copy{
+    align-self:end;justify-self:end;max-width:450px;padding-bottom:12px;
+  }
+  .hero-copy p{
+    font-size:clamp(17px,1.7vw,24px);line-height:1.25;letter-spacing:-.025em;margin:0 0 28px;
+  }
+  .meta-row{
+    display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);
+    padding-top:12px;font:500 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase
+  }
+  .section-inner{
+    width:100%;display:grid;grid-template-columns:.65fr 1.35fr;gap:70px;
+    padding:110px 0 86px;align-items:center;
+  }
+  .kicker{
+    position:sticky;top:110px;align-self:start;
+    font:500 12px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase;
+  }
+  .kicker .index{display:inline-block;width:44px;color:var(--accent)}
+  .project-copy{max-width:810px;margin-left:auto}
+  h2{
+    font-size:clamp(54px,7vw,112px);line-height:.88;letter-spacing:-.065em;margin:0 0 30px;
+    font-weight:650;
+  }
+  .lead{
+    font-size:clamp(19px,2.1vw,31px);line-height:1.13;letter-spacing:-.035em;
+    max-width:780px;margin:0 0 38px;
+  }
+  .project-meta{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    border-top:1px solid var(--line);padding-top:13px;
+    font:500 11px/1.35 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase
+  }
+  .project-meta strong{display:block;font-family:inherit;font-weight:500;color:var(--muted);margin-bottom:3px}
+  .visual-window{
+    position:absolute;right:3.4vw;top:50%;transform:translateY(-50%);
+    width:min(40vw,610px);height:min(62vh,650px);
+    border:1px solid var(--line);z-index:-1;opacity:.34;
+  }
+  .visual-window::before,.visual-window::after{
+    content:"";position:absolute;background:var(--line)
+  }
+  .visual-window::before{left:50%;top:0;bottom:0;width:1px}
+  .visual-window::after{top:50%;left:0;right:0;height:1px}
+  .visual-label{
+    position:absolute;right:calc(3.4vw + 12px);bottom:34px;
+    font:500 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase;
+    opacity:.56
+  }
+  .dark{
+    color:#f0eee6;
+  }
+  .dark::before{
+    content:"";position:absolute;inset:0;background:#10100f;z-index:-3;
+  }
+  .dark .lead,.dark .project-meta,.dark .kicker{color:#f0eee6}
+  .dark .project-meta,.dark{--line:rgba(242,239,231,.16)}
+  .dark .visual-window{border-color:rgba(242,239,231,.2)}
+  .dark .visual-window::before,.dark .visual-window::after{background:rgba(242,239,231,.15)}
+  .statement{
+    min-height:86vh;text-align:center;
+  }
+  .statement .wrap{display:flex;justify-content:center}
+  .statement blockquote{
+    margin:0;max-width:1220px;font-size:clamp(48px,7.5vw,120px);
+    line-height:.9;letter-spacing:-.065em;font-weight:600;
+  }
+  .statement em{font-family:Georgia,serif;font-weight:400}
+  .lab-grid{
+    width:100%;display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:100px 0;
+  }
+  .lab-title{font-size:clamp(48px,6vw,92px);line-height:.9;letter-spacing:-.055em;margin:0}
+  .experiments{display:grid;gap:0;border-top:1px solid var(--line)}
+  .exp{
+    display:grid;grid-template-columns:54px 1fr auto;gap:16px;align-items:center;
+    padding:18px 0;border-bottom:1px solid var(--line);
+  }
+  .exp span:first-child,.exp small{
+    font:500 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase;color:var(--muted)
+  }
+  .exp strong{font-size:17px;letter-spacing:-.02em}
+  footer{position:relative;z-index:2;padding:80px 0 34px}
+  .footer-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-end}
+  .footer-big{font-size:clamp(55px,10vw,150px);line-height:.84;letter-spacing:-.075em;font-weight:650;margin:0}
+  .footer-small{text-align:right;font:500 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase}
+  .cursor{
+    position:fixed;width:11px;height:11px;border:1px solid var(--ink);border-radius:50%;
+    transform:translate(-50%,-50%);pointer-events:none;z-index:50;mix-blend-mode:difference;
+  }
+  .scroll-tag{
+    position:fixed;left:24px;bottom:22px;z-index:30;
+    font:500 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;text-transform:uppercase;
+    transform:rotate(-90deg);transform-origin:left bottom;opacity:.55
+  }
+  .progress{position:fixed;left:0;bottom:0;height:2px;background:var(--accent);z-index:40;transform-origin:left;width:100%;transform:scaleX(0)}
+  @media(max-width:900px){
+    header{padding:16px}.nav{display:none}.wrap{width:min(calc(100% - 32px),var(--max))}
+    .hero-grid,.section-inner,.lab-grid{grid-template-columns:1fr}
+    .hero-grid{gap:40px;padding-top:72px}.hero-copy{justify-self:start}
+    .section-inner{gap:46px;padding:100px 0}.kicker{position:static}
+    .project-copy{margin:0;max-width:100%}.visual-window{width:72vw;height:45vh;right:-14vw;opacity:.2}
+    .project-meta{grid-template-columns:1fr}.footer-top{display:block}.footer-small{text-align:left;margin-top:34px}
+    .cursor{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}.cursor{display:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="matter" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+<div class="scroll-tag">scroll / reconstruct</div>
+
+<header id="topbar">
+  <a class="brand" href="#home"><span class="brand-dot"></span> Felipe / Portfolio 2026</a>
+  <nav class="nav">
+    <a href="#project-1">Work</a>
+    <a href="#lab">Lab</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home" data-scene="0">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Software Engineer · Digital Products · Lima, PE</div>
+        <h1>BUILDING<br><span class="outline">DIGITAL</span><br>MATTER.</h1>
+      </div>
+      <div class="hero-copy">
+        <p>I design and engineer interfaces where code, motion and product thinking become one system.</p>
+        <div class="meta-row"><span>Selected work 2024—26</span><span>Available ↓</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-1" data-scene="1">
+    <div class="visual-window"></div>
+    <div class="visual-label">01 / point cloud / realtime</div>
+    <div class="wrap section-inner">
+      <div class="kicker"><span class="index">01</span> Spatial interface</div>
+      <div class="project-copy">
+        <h2>Aevion<br>Systems</h2>
+        <p class="lead">A realtime operations platform expressed as a spatial point cloud — the interface reveals structure only when you need it.</p>
+        <div class="project-meta">
+          <div><strong>Role</strong>Product + Engineering</div>
+          <div><strong>Stack</strong>React / WebGL / APIs</div>
+          <div><strong>Year</strong>2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="project-2" data-scene="2">
+    <div class="visual-window"></div>
+    <div class="visual-label">02 / voxel matrix / transition</div>
+    <div class="wrap section-inner">
+      <div class="kicker"><span class="index">02</span> AI platform</div>
+      <div class="project-copy">
+        <h2>Agentic<br>Workspace</h2>
+        <p class="lead">An AI workspace with a deliberately low-resolution visual language: dithered objects, voxel fields and precise product UI.</p>
+        <div class="project-meta">
+          <div><strong>Role</strong>Frontend Architecture</div>
+          <div><strong>Stack</strong>Next.js / TypeScript</div>
+          <div><strong>Year</strong>2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-3" data-scene="3">
+    <div class="visual-window"></div>
+    <div class="visual-label">03 / image particles / dissolve</div>
+    <div class="wrap section-inner">
+      <div class="kicker"><span class="index">03</span> Data product</div>
+      <div class="project-copy">
+        <h2>Signal<br>Atlas</h2>
+        <p class="lead">A data product where dense information becomes visual terrain. Projects transition by dissolving one image into the next.</p>
+        <div class="project-meta">
+          <div><strong>Role</strong>Design Engineering</div>
+          <div><strong>Stack</strong>Canvas / Workers / D3</div>
+          <div><strong>Year</strong>2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement" data-scene="4">
+    <div class="wrap">
+      <blockquote>Less decoration.<br>More <em>behavior.</em></blockquote>
+    </div>
+  </section>
+
+  <section id="lab" data-scene="5">
+    <div class="wrap lab-grid">
+      <div>
+        <div class="eyebrow">Experiments / 2026</div>
+        <h2 class="lab-title">Small<br>systems,<br>strange<br>interfaces.</h2>
+      </div>
+      <div class="experiments">
+        <div class="exp"><span>001</span><strong>Point-cloud image renderer</strong><small>WebGL</small></div>
+        <div class="exp"><span>002</span><strong>Variable dither typography</strong><small>Canvas</small></div>
+        <div class="exp"><span>003</span><strong>Voxel UI transitions</strong><small>Shader</small></div>
+        <div class="exp"><span>004</span><strong>Audio reactive grid</strong><small>WebAudio</small></div>
+        <div class="exp"><span>005</span><strong>Generative portfolio covers</strong><small>JS</small></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" data-scene="6">
+  <div class="wrap">
+    <div class="eyebrow">Have something worth building?</div>
+    <div class="footer-top">
+      <p class="footer-big">LET'S MAKE<br>IT REAL.</p>
+      <div class="footer-small">
+        felipe@example.com<br>
+        github / linkedin<br><br>
+        Lima, Peru · GMT−5
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const canvas = document.getElementById('matter');
+  const ctx = canvas.getContext('2d', { alpha:true });
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DPR = Math.min(devicePixelRatio || 1, 1.7);
+  let W=0,H=0, mouse={x:.5,y:.5}, activeScene=0, targetScene=0, scrollP=0;
+
+  const COUNT = innerWidth < 700 ? 900 : 1850;
+  const pts = [];
+  const scenes = [];
+  const ink = [17,17,15];
+  const paper = [242,239,231];
+  const blue = [49,87,255];
+
+  function resize(){
+    W=innerWidth;H=innerHeight;
+    canvas.width=W*DPR;canvas.height=H*DPR;
+    canvas.style.width=W+'px';canvas.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    buildScenes();
+  }
+
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+  function rand(seed){
+    let x=Math.sin(seed*999.91)*43758.5453; return x-Math.floor(x);
+  }
+
+  function buildScenes(){
+    scenes.length=0;
+
+    // Hero: human-ish abstract profile cloud, centered right.
+    const s0=[];
+    for(let i=0;i<COUNT;i++){
+      const a=rand(i*3+1)*Math.PI*2;
+      const r=Math.pow(rand(i*3+2),.62);
+      const squash=.72 + .16*Math.sin(a*3);
+      let x=.71 + Math.cos(a)*r*.18*squash;
+      let y=.48 + Math.sin(a)*r*.34;
+      // carve profile-like notch
+      if(x>.77 && y>.37 && y<.53){ x -= .035*(1-r); }
+      s0.push({x,y,z:(rand(i+22)-.5)*1.4,size:rand(i+11)>0.86?2.2:1.15,c:ink,a:.72});
+    }
+    scenes.push(s0);
+
+    // Scene 1: lidar-like topographic spiral/ridge.
+    const s1=[];
+    for(let i=0;i<COUNT;i++){
+      const t=i/COUNT;
+      const band=Math.floor(t*32);
+      const u=(t*32)%1;
+      const angle=u*Math.PI*2 + band*.22;
+      const radius=.05 + band/32*.28 + Math.sin(angle*3+band*.5)*.012;
+      const x=.70+Math.cos(angle)*radius*1.1;
+      const y=.51+Math.sin(angle)*radius*.72;
+      const z=Math.sin(angle*2+band*.3)*.8;
+      s1.push({x,y,z,size:band%4===0?1.8:1.05,c: i%13===0?blue:ink,a:.77});
+    }
+    scenes.push(s1);
+
+    // Scene 2: voxel/dither bust/object matrix.
+    const s2=[];
+    const cols=48, rows=38;
+    let idx=0;
+    for(let gy=0;gy<rows;gy++){
+      for(let gx=0;gx<cols && idx<COUNT;gx++,idx++){
+        const nx=gx/(cols-1), ny=gy/(rows-1);
+        const dx=(nx-.5)/.47, dy=(ny-.5)/.46;
+        const body = dx*dx + dy*dy < 1;
+        const cut = (nx>.62 && ny>.25 && ny<.54);
+        let alive = body && !cut;
+        if(rand(gx*71+gy*19) > (alive ? .12 : .965)){
+          const x=.70+(nx-.5)*.43;
+          const y=.50+(ny-.5)*.58;
+          const depth=Math.cos(dx*2.7)*Math.cos(dy*2.3);
+          s2.push({x,y,z:depth,size:3.2,c:(gx+gy)%9===0?blue:paper,a:.78});
+        }
+      }
+    }
+    while(s2.length<COUNT){
+      const i=s2.length;
+      s2.push({x:.70+(rand(i*8)-.5)*.48,y:.50+(rand(i*9)-.5)*.62,z:0,size:2.4,c:paper,a:.18});
+    }
+    scenes.push(s2.slice(0,COUNT));
+
+    // Scene 3: image-like wave / landscape made of stipple.
+    const s3=[];
+    for(let i=0;i<COUNT;i++){
+      const x=.48 + rand(i*13)*.48;
+      const n=(x-.48)/.48;
+      const ridge=.51 + Math.sin(n*8.5)*.05 + Math.sin(n*19)*.018;
+      const below=rand(i*15);
+      const y=ridge + (below-.5)*(.16 + n*.22);
+      const edge=Math.abs(y-ridge);
+      const alpha=clamp(.92-edge*3.2,.1,.88);
+      s3.push({x,y,z:Math.sin(n*12+i*.001)*.4,size:edge<.05?1.8:1.0,c:i%17===0?blue:ink,a:alpha});
+    }
+    scenes.push(s3);
+
+    // Scene 4: large orbital ring.
+    const s4=[];
+    for(let i=0;i<COUNT;i++){
+      const a=(i/COUNT)*Math.PI*2*8;
+      const r=.18+.055*Math.sin(a*.5);
+      s4.push({
+        x:.5+Math.cos(a)*r*(1+.25*Math.sin(a*.17)),
+        y:.50+Math.sin(a)*r*.44,
+        z:Math.sin(a*.33),
+        size:i%16===0?2.2:1.0,c:i%29===0?blue:ink,a:.58
+      });
+    }
+    scenes.push(s4);
+
+    // Scene 5: modular voxel grid.
+    const s5=[];
+    for(let i=0;i<COUNT;i++){
+      const gx=i%45, gy=Math.floor(i/45)%42;
+      const x=.56+gx/45*.37;
+      const y=.25+gy/42*.50;
+      const wave=Math.sin(gx*.46)+Math.cos(gy*.31);
+      s5.push({x,y,z:wave,size:1.15+(wave>1?1.7:0),c:wave>1.35?blue:ink,a:.58});
+    }
+    scenes.push(s5);
+
+    // Scene 6: exploding contact cloud
+    const s6=[];
+    for(let i=0;i<COUNT;i++){
+      const a=rand(i*31)*Math.PI*2, r=Math.pow(rand(i*17),.34)*.52;
+      s6.push({x:.5+Math.cos(a)*r,y:.58+Math.sin(a)*r*.6,z:(rand(i*23)-.5)*2,size:1.1,c:i%21===0?blue:ink,a:.42});
+    }
+    scenes.push(s6);
+
+    if(!pts.length){
+      for(let i=0;i<COUNT;i++){
+        const p=scenes[0][i] || scenes[0][i%scenes[0].length];
+        pts.push({x:p.x,y:p.y,z:p.z,size:p.size,c:p.c,a:p.a,vx:0,vy:0});
+      }
+    }
+  }
+
+  function lerp(a,b,t){return a+(b-a)*t}
+  function mixColor(a,b,t){
+    return [
+      Math.round(lerp(a[0],b[0],t)),
+      Math.round(lerp(a[1],b[1],t)),
+      Math.round(lerp(a[2],b[2],t))
+    ]
+  }
+
+  function sectionState(){
+    const sections=[...document.querySelectorAll('[data-scene]')];
+    let best=0, bestDist=Infinity;
+    sections.forEach((s,i)=>{
+      const r=s.getBoundingClientRect();
+      const center=r.top+r.height*.5;
+      const d=Math.abs(center-H*.5);
+      if(d<bestDist){bestDist=d;best=+s.dataset.scene}
+    });
+    targetScene=best;
+    const max=document.documentElement.scrollHeight-H;
+    scrollP=max>0?scrollY/max:0;
+    document.querySelector('.progress').style.transform=`scaleX(${scrollP})`;
+    document.getElementById('topbar').classList.toggle('scrolled',scrollY>30);
+  }
+
+  function tick(){
+    activeScene += (targetScene-activeScene)*(reduced?.18:.055);
+    const a=Math.floor(activeScene), b=Math.min(scenes.length-1,a+1), t=activeScene-a;
+    ctx.clearRect(0,0,W,H);
+
+    const darkBlend = clamp(1-Math.abs(activeScene-2),0,1);
+    const cursorX=(mouse.x-.5)*22, cursorY=(mouse.y-.5)*16;
+
+    for(let i=0;i<COUNT;i++){
+      const A=scenes[a][i%scenes[a].length], B=scenes[b][i%scenes[b].length];
+      let tx=lerp(A.x,B.x,t), ty=lerp(A.y,B.y,t), tz=lerp(A.z,B.z,t);
+      const disperse=Math.sin(t*Math.PI);
+      const rndx=(rand(i*91)-.5)*.11*disperse;
+      const rndy=(rand(i*57)-.5)*.11*disperse;
+      tx+=rndx;ty+=rndy;
+
+      const depthScale=1+tz*.035;
+      const px=tx*W + cursorX*tz;
+      const py=ty*H + cursorY*tz;
+      const p=pts[i];
+      p.x += (px/W-p.x)*(reduced?.34:.12);
+      p.y += (py/H-p.y)*(reduced?.34:.12);
+
+      const color=mixColor(A.c,B.c,t);
+      const finalColor=mixColor(color,paper,darkBlend*.0);
+      const size=lerp(A.size,B.size,t)*depthScale;
+      const alpha=lerp(A.a,B.a,t)*(0.86 + .14*Math.sin(i*.7+performance.now()*.001));
+
+      ctx.beginPath();
+      ctx.fillStyle=`rgba(${finalColor[0]},${finalColor[1]},${finalColor[2]},${alpha})`;
+      if(activeScene>1.35 && activeScene<2.65){
+        const s=size*(activeScene>1.65&&activeScene<2.35?1.35:1);
+        ctx.fillRect(p.x*W,p.y*H,s,s);
+      }else{
+        ctx.arc(p.x*W,p.y*H,size,0,Math.PI*2);
+        ctx.fill();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  addEventListener('resize',resize);
+  addEventListener('scroll',sectionState,{passive:true});
+  addEventListener('mousemove',e=>{
+    mouse.x=e.clientX/W; mouse.y=e.clientY/H;
+    const c=document.querySelector('.cursor');
+    c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
+  },{passive:true});
+
+  resize(); sectionState(); tick();
+})();
+</script>
+</body>
+</html>

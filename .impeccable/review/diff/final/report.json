@@ -1,0 +1,807 @@
+{
+  "tool": "comp-diff",
+  "version": 1,
+  "createdAt": "2026-09-14T21:09:08.108Z",
+  "label": "hero-repro",
+  "comp": ".impeccable/mocks/decision/horizonte.png",
+  "build": ".impeccable/review/hero-repro.png",
+  "spec": ".impeccable/build/spec.json",
+  "compSize": "1536x1024",
+  "buildSize": "1526x1017",
+  "align": "top",
+  "overall": 0.7363,
+  "verdict": "drift",
+  "scores": {
+    "overall": 0.7363,
+    "structure": 0.749,
+    "color": 0.7874,
+    "colorIntersection": 0.6068,
+    "paletteMatch": 0.8846,
+    "detail": 0.5347,
+    "detailRaw": 0.566,
+    "detailAdded": 0.0625,
+    "bands": 0.9571
+  },
+  "palette": {
+    "comp": [
+      {
+        "hex": "#f3ebe8",
+        "coverage": 0.8976
+      },
+      {
+        "hex": "#090909",
+        "coverage": 0.0418
+      },
+      {
+        "hex": "#afada7",
+        "coverage": 0.025
+      },
+      {
+        "hex": "#73716d",
+        "coverage": 0.0202
+      },
+      {
+        "hex": "#3c3a38",
+        "coverage": 0.0108
+      },
+      {
+        "hex": "#0848f8",
+        "coverage": 0.0046
+      }
+    ],
+    "build": [
+      {
+        "hex": "#f6e8e7",
+        "coverage": 0.9337
+      },
+      {
+        "hex": "#17170b",
+        "coverage": 0.0338
+      },
+      {
+        "hex": "#b2b0aa",
+        "coverage": 0.014
+      },
+      {
+        "hex": "#87857d",
+        "coverage": 0.007
+      },
+      {
+        "hex": "#64615c",
+        "coverage": 0.0062
+      },
+      {
+        "hex": "#3b3b38",
+        "coverage": 0.0054
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "name",
+      "x": 0.0391,
+      "y": 0.0234,
+      "w": 0.1289,
+      "h": 0.0352,
+      "kind": "text",
+      "score": {
+        "overall": 0.7504,
+        "structure": 0.8207,
+        "color": 0.7187,
+        "colorIntersection": 0.5046,
+        "paletteMatch": 0.834,
+        "detail": 0.5358,
+        "detailRaw": 0.5827,
+        "detailAdded": 0.0938,
+        "bands": 0.8
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 12,
+          "w": 182,
+          "h": 20
+        },
+        "build": {
+          "x": 4,
+          "y": 10,
+          "w": 194,
+          "h": 19
+        }
+      }
+    },
+    {
+      "id": "dot",
+      "x": 0.0423,
+      "y": 0.0293,
+      "w": 0.0104,
+      "h": 0.0156,
+      "kind": "chrome",
+      "score": {
+        "overall": 0.7616,
+        "structure": 0.979,
+        "color": 0.6265,
+        "colorIntersection": 0.4358,
+        "paletteMatch": 0.7292,
+        "detail": 0.4493,
+        "detailRaw": 0.491,
+        "detailAdded": 0.0833,
+        "bands": 1
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 17,
+          "y": 17,
+          "w": 15,
+          "h": 15
+        },
+        "build": {
+          "x": 15,
+          "y": 15,
+          "w": 33,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "nav",
+      "x": 0.6628,
+      "y": 0.0234,
+      "w": 0.1758,
+      "h": 0.0293,
+      "kind": "text",
+      "score": {
+        "overall": 0.6939,
+        "structure": 0.8236,
+        "color": 0.6665,
+        "colorIntersection": 0.4904,
+        "paletteMatch": 0.7613,
+        "detail": 0.4589,
+        "detailRaw": 0.5058,
+        "detailAdded": 0.0938,
+        "bands": 0.4667
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 5,
+          "y": 17,
+          "w": 259,
+          "h": 16
+        },
+        "build": {
+          "x": 17,
+          "y": 15,
+          "w": 253,
+          "h": 15
+        }
+      }
+    },
+    {
+      "id": "language",
+      "x": 0.9017,
+      "y": 0.0234,
+      "w": 0.0625,
+      "h": 0.0293,
+      "kind": "control",
+      "score": {
+        "overall": 0.68,
+        "structure": 0.8081,
+        "color": 0.8108,
+        "colorIntersection": 0.7205,
+        "paletteMatch": 0.8594,
+        "detail": 0.1628,
+        "detailRaw": 0.2358,
+        "detailAdded": 0.1458,
+        "bands": 0.35
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 11,
+          "y": 18,
+          "w": 74,
+          "h": 14
+        },
+        "build": {
+          "x": 4,
+          "y": 16,
+          "w": 73,
+          "h": 14
+        }
+      }
+    },
+    {
+      "id": "top-rule",
+      "x": 0.043,
+      "y": 0.0703,
+      "w": 0.9147,
+      "h": 0.001,
+      "kind": "chrome",
+      "score": {
+        "overall": 0.7826,
+        "structure": 0.9995,
+        "color": 0.6774,
+        "colorIntersection": 0.4285,
+        "paletteMatch": 0.8114,
+        "detail": 0.4538,
+        "detailRaw": 0.4538,
+        "detailAdded": 0,
+        "bands": 1
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 1,
+          "y": 0,
+          "w": 1403,
+          "h": 26
+        },
+        "build": null
+      }
+    },
+    {
+      "id": "headline",
+      "x": 0.0391,
+      "y": 0.1348,
+      "w": 0.4297,
+      "h": 0.165,
+      "kind": "text",
+      "score": {
+        "overall": 0.6158,
+        "structure": 0.5258,
+        "color": 0.705,
+        "colorIntersection": 0.4801,
+        "paletteMatch": 0.826,
+        "detail": 0.5878,
+        "detailRaw": 0.7128,
+        "detailAdded": 0.25,
+        "bands": 0.885
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 11,
+          "w": 648,
+          "h": 158
+        },
+        "build": {
+          "x": 15,
+          "y": 2,
+          "w": 645,
+          "h": 167
+        }
+      }
+    },
+    {
+      "id": "headline-outline",
+      "x": 0.0352,
+      "y": 0.2002,
+      "w": 0.4531,
+      "h": 0.1934,
+      "kind": "text",
+      "score": {
+        "overall": 0.4911,
+        "structure": 0.3454,
+        "color": 0.7602,
+        "colorIntersection": 0.6034,
+        "paletteMatch": 0.8446,
+        "detail": 0.5103,
+        "detailRaw": 0.5675,
+        "detailAdded": 0.1146,
+        "bands": 0.5182
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 0,
+          "w": 681,
+          "h": 190
+        },
+        "build": {
+          "x": 14,
+          "y": 0,
+          "w": 682,
+          "h": 177
+        }
+      }
+    },
+    {
+      "id": "specialty",
+      "x": 0.0391,
+      "y": 0.4004,
+      "w": 0.2891,
+      "h": 0.0527,
+      "kind": "text",
+      "score": {
+        "overall": 0.7296,
+        "structure": 0.605,
+        "color": 0.8432,
+        "colorIntersection": 0.7349,
+        "paletteMatch": 0.9015,
+        "detail": 0.849,
+        "detailRaw": 0.8542,
+        "detailAdded": 0.0104,
+        "bands": 0.8889
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 6,
+          "y": 6,
+          "w": 427,
+          "h": 39
+        },
+        "build": {
+          "x": 6,
+          "y": 6,
+          "w": 404,
+          "h": 39
+        }
+      }
+    },
+    {
+      "id": "value",
+      "x": 0.0391,
+      "y": 0.5527,
+      "w": 0.1289,
+      "h": 0.0479,
+      "kind": "text",
+      "score": {
+        "overall": 0.6521,
+        "structure": 0.7575,
+        "color": 0.4962,
+        "colorIntersection": 0.183,
+        "paletteMatch": 0.6648,
+        "detail": 0.518,
+        "detailRaw": 0.544,
+        "detailAdded": 0.0521,
+        "bands": 0.7167
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 198,
+          "h": 49
+        },
+        "build": {
+          "x": 0,
+          "y": 0,
+          "w": 198,
+          "h": 49
+        }
+      }
+    },
+    {
+      "id": "cta",
+      "x": 0.0391,
+      "y": 0.5527,
+      "w": 0.1289,
+      "h": 0.0645,
+      "kind": "control",
+      "score": {
+        "overall": 0.5346,
+        "structure": 0.6685,
+        "color": 0.5302,
+        "colorIntersection": 0.2121,
+        "paletteMatch": 0.7014,
+        "detail": 0.2409,
+        "detailRaw": 0.3764,
+        "detailAdded": 0.2708,
+        "bands": 0.4778
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 198,
+          "h": 66
+        },
+        "build": {
+          "x": 0,
+          "y": 0,
+          "w": 198,
+          "h": 66
+        }
+      }
+    },
+    {
+      "id": "talk",
+      "x": 0.1003,
+      "y": 0.5527,
+      "w": 0.0664,
+      "h": 0.0645,
+      "kind": "control",
+      "score": {
+        "overall": 0.5174,
+        "structure": 0.7165,
+        "color": 0.5086,
+        "colorIntersection": 0.1872,
+        "paletteMatch": 0.6817,
+        "detail": 0.0849,
+        "detailRaw": 0.2412,
+        "detailAdded": 0.3125,
+        "bands": 0.4167
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 0,
+          "w": 102,
+          "h": 66
+        },
+        "build": {
+          "x": 0,
+          "y": 0,
+          "w": 102,
+          "h": 66
+        }
+      }
+    },
+    {
+      "id": "terrain",
+      "x": 0,
+      "y": 0.3418,
+      "w": 1,
+      "h": 0.4209,
+      "kind": "plate",
+      "score": {
+        "overall": 0.5665,
+        "structure": 0.6901,
+        "color": 0.7536,
+        "colorIntersection": 0.5514,
+        "paletteMatch": 0.8625,
+        "detail": 0.3926,
+        "detailRaw": 0.4082,
+        "detailAdded": 0.0313,
+        "bands": 0.94
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 3,
+          "y": 0,
+          "w": 1533,
+          "h": 431
+        },
+        "build": {
+          "x": 1,
+          "y": 0,
+          "w": 1525,
+          "h": 431
+        }
+      }
+    },
+    {
+      "id": "paper",
+      "x": 0.6217,
+      "y": 0.1084,
+      "w": 0.0938,
+      "h": 0.1563,
+      "kind": "texture",
+      "score": {
+        "overall": 0.9293,
+        "structure": 0.9959,
+        "color": 0.8221,
+        "colorIntersection": 0.6194,
+        "paletteMatch": 0.9312,
+        "detail": 0.9844,
+        "detailRaw": 1,
+        "detailAdded": 0.0313,
+        "bands": 1
+      },
+      "verdict": "match",
+      "inkBox": {
+        "comp": null,
+        "build": {
+          "x": 0,
+          "y": 77,
+          "w": 5,
+          "h": 52
+        }
+      }
+    },
+    {
+      "id": "location",
+      "x": 0.0391,
+      "y": 0.7646,
+      "w": 0.1016,
+      "h": 0.0293,
+      "kind": "text",
+      "score": {
+        "overall": 0.6554,
+        "structure": 0.7157,
+        "color": 0.8807,
+        "colorIntersection": 0.773,
+        "paletteMatch": 0.9387,
+        "detail": 0.2681,
+        "detailRaw": 0.3983,
+        "detailAdded": 0.2604,
+        "bands": 0.3714
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 15,
+          "w": 141,
+          "h": 14
+        },
+        "build": {
+          "x": 5,
+          "y": 0,
+          "w": 139,
+          "h": 48
+        }
+      }
+    },
+    {
+      "id": "matter",
+      "x": 0.8431,
+      "y": 0.7646,
+      "w": 0.1211,
+      "h": 0.0293,
+      "kind": "text",
+      "score": {
+        "overall": 0.6678,
+        "structure": 0.7467,
+        "color": 0.8688,
+        "colorIntersection": 0.7581,
+        "paletteMatch": 0.9284,
+        "detail": 0.3484,
+        "detailRaw": 0.4109,
+        "detailAdded": 0.125,
+        "bands": 0.25
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 9,
+          "y": 17,
+          "w": 168,
+          "h": 12
+        },
+        "build": {
+          "x": 16,
+          "y": 22,
+          "w": 166,
+          "h": 11
+        }
+      }
+    },
+    {
+      "id": "work-rule",
+      "x": 0.043,
+      "y": 0.8135,
+      "w": 0.9147,
+      "h": 0.001,
+      "kind": "chrome",
+      "score": {
+        "overall": 0.7247,
+        "structure": 0.9962,
+        "color": 0.8503,
+        "colorIntersection": 0.7421,
+        "paletteMatch": 0.9085,
+        "detail": 0.2339,
+        "detailRaw": 0.3589,
+        "detailAdded": 0.25,
+        "bands": 0.7
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 0,
+          "y": 23,
+          "w": 1405,
+          "h": 2
+        },
+        "build": {
+          "x": 19,
+          "y": 7,
+          "w": 1379,
+          "h": 40
+        }
+      }
+    },
+    {
+      "id": "work-index",
+      "x": 0.0391,
+      "y": 0.8643,
+      "w": 0.1289,
+      "h": 0.0527,
+      "kind": "text",
+      "score": {
+        "overall": 0.6441,
+        "structure": 0.7266,
+        "color": 0.7839,
+        "colorIntersection": 0.6652,
+        "paletteMatch": 0.8478,
+        "detail": 0.0589,
+        "detailRaw": 0.1162,
+        "detailAdded": 0.1146,
+        "bands": 0.76
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 7,
+          "y": 5,
+          "w": 183,
+          "h": 42
+        },
+        "build": {
+          "x": 5,
+          "y": 13,
+          "w": 143,
+          "h": 41
+        }
+      }
+    },
+    {
+      "id": "work-title",
+      "x": 0.235,
+      "y": 0.8643,
+      "w": 0.265,
+      "h": 0.0469,
+      "kind": "text",
+      "score": {
+        "overall": 0.5042,
+        "structure": 0.4116,
+        "color": 0.7525,
+        "colorIntersection": 0.5421,
+        "paletteMatch": 0.8658,
+        "detail": 0.5133,
+        "detailRaw": 0.5914,
+        "detailAdded": 0.1563,
+        "bands": 0.3333
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 10,
+          "y": 6,
+          "w": 392,
+          "h": 34
+        },
+        "build": {
+          "x": 0,
+          "y": 12,
+          "w": 364,
+          "h": 33
+        }
+      }
+    },
+    {
+      "id": "work-stack",
+      "x": 0.2389,
+      "y": 0.918,
+      "w": 0.1914,
+      "h": 0.0293,
+      "kind": "text",
+      "score": {
+        "overall": 0.6223,
+        "structure": 0.7465,
+        "color": 0.7995,
+        "colorIntersection": 0.6125,
+        "paletteMatch": 0.9002,
+        "detail": 0.0942,
+        "detailRaw": 0.1515,
+        "detailAdded": 0.1146,
+        "bands": 0.35
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 8,
+          "y": 15,
+          "w": 277,
+          "h": 14
+        },
+        "build": {
+          "x": 0,
+          "y": 22,
+          "w": 197,
+          "h": 13
+        }
+      }
+    },
+    {
+      "id": "work-divider",
+      "x": 0.2051,
+      "y": 0.8486,
+      "w": 0.0007,
+      "h": 0.0996,
+      "kind": "chrome",
+      "score": {
+        "overall": 0.7061,
+        "structure": 0.9628,
+        "color": 0.8765,
+        "colorIntersection": 0.817,
+        "paletteMatch": 0.9085,
+        "detail": 0,
+        "detailRaw": 0,
+        "detailAdded": 0,
+        "bands": 1
+      },
+      "verdict": "missing",
+      "inkBox": {
+        "comp": {
+          "x": 24,
+          "y": 1,
+          "w": 1,
+          "h": 98
+        },
+        "build": null
+      }
+    },
+    {
+      "id": "work-flow",
+      "x": 0.6667,
+      "y": 0.8496,
+      "w": 0.2793,
+      "h": 0.1016,
+      "kind": "chrome",
+      "score": {
+        "overall": 0.5519,
+        "structure": 0.5256,
+        "color": 0.8056,
+        "colorIntersection": 0.6516,
+        "paletteMatch": 0.8885,
+        "detail": 0.2889,
+        "detailRaw": 0.4087,
+        "detailAdded": 0.2396,
+        "bands": 0.6286
+      },
+      "verdict": "drift",
+      "inkBox": {
+        "comp": {
+          "x": 4,
+          "y": 0,
+          "w": 424,
+          "h": 89
+        },
+        "build": {
+          "x": 24,
+          "y": 9,
+          "w": 386,
+          "h": 90
+        }
+      }
+    }
+  ],
+  "files": {
+    "sideBySide": "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/side-by-side.png",
+    "heatmap": "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/heatmap.png",
+    "regionFiles": [
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/name.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/dot.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/nav.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/language.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/top-rule.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/headline.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/headline-outline.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/specialty.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/value.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/cta.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/talk.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/terrain.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/paper.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/location.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/matter.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/work-rule.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/work-index.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/work-title.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/work-stack.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/work-divider.png",
+      "C:/Code/OTHERS/felipepoma.github.io/.impeccable/review/diff/final/regions/work-flow.png"
+    ]
+  }
+}

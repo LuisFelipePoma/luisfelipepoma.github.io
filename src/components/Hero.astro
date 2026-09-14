@@ -1,0 +1,57 @@
+---
+import { copy, type Locale } from "../data/portfolio";
+import Action from "./Action.astro";
+import { container, metadata } from "../styles/patterns";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<section
+  class:list={[
+    container,
+    "hero relative h-[calc(100vh-128px)] pt-10 md:h-[calc(100vh-74px)] md:pt-[clamp(24px,6vh,64px)]",
+  ]}
+  id="inicio"
+  aria-labelledby="hero-title"
+  data-scene="terrain"
+>
+  <div class="relative z-2 w-fit max-w-full" >
+    <h1
+      class="hero-title text-[clamp(40px,11.8vw,88px)] leading-[.92] font-extrabold tracking-[-.04em] md:text-[min(10.16vw,18vh)] md:leading-[.81] lg:text-[clamp(64px,min(10.16vw,18vh),156px)]"
+      id="hero-title"
+    >
+      <span class="block w-max max-w-full">{t.headline[0]}</span><span
+        class="outline block w-max max-w-full text-transparent [-webkit-text-stroke:1px_#11110f] md:[-webkit-text-stroke:1.6px_#11110f]"
+        >{t.headline[1]}</span
+      >
+    </h1>
+    <p
+      class="hero-specialty mt-4 text-[clamp(22px,5.9vw,32px)] leading-tight font-[650] tracking-[-.04em] md:text-[clamp(24px,2.735vw,42px)]"
+    >
+      {t.specialty}
+    </p><p
+      class="hero-description mt-6 max-w-[42ch] text-lg leading-normal text-pretty md:max-w-[540px] md:text-xl lg:max-w-[640px] lg:text-[22px] lg:leading-[1.35]"
+    >
+      {t.value}
+    </p>
+    <div
+      class="hero-actions mt-6 flex items-center gap-6 md:mt-8 md:gap-8 bg-transparent"
+    >
+      <Action href="#trabajo" primary>{t.seeWork}</Action><Action
+        href="#contacto"
+        class="underline decoration-1 underline-offset-5">{t.talk}</Action
+      >
+    </div>
+  </div>
+  <div
+    class:list={[
+      metadata,
+      "hero-foot absolute right-0 bottom-6 left-0 z-2 flex justify-between gap-4 text-[9px] uppercase md:text-xs [&_span:last-child]:text-right",
+    ]}
+  >
+    <span>{t.location}</span><span>{t.matter} / 001</span>
+  </div>
+</section>

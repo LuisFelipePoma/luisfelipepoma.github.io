@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+﻿# Luis Felipe Poma · Portfolio
+
+Portafolio estático bilingüe con Astro: español en `/` e inglés en `/en/`. La dirección aprobada es **Horizonte digital**, con tipografía editorial, terreno de puntos y cuatro casos seleccionados.
+
+## Desarrollo
+
+Requiere Node.js 22.12 o superior.
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci
+npm run dev -- --background
+npm run astro -- dev status
+npm run astro -- dev logs
+npm run astro -- dev stop
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Validación y salida estática
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run check
+npm run build
+npm test
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+La compilación genera `dist/`, compatible con GitHub Pages. El workflow existente en `.github/workflows/deploy.yml` usa esta salida. `site` en `astro.config.mjs` debe coincidir con el dominio publicado.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Contenido y diseño
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `src/data/portfolio.ts`: perfil, proyectos y traducciones compartidas.
+- `src/components/`: secciones y patrones Astro reutilizables.
+- `src/styles/tailwind.css`: fuentes locales y tokens de Tailwind 4.
+- `src/styles/patterns.ts`: recetas de utilidades compartidas; el diseño vive en los componentes Astro.
+- `src/scripts/portfolio.ts`: partículas, movimiento reducido y copia del correo.
+- `public/cv/`: PDF español original; sustituirlo cuando se actualice el CV.
+- `PRODUCT.md`: contexto y fuentes factuales. `DESIGN.md` y `.impeccable/design.json`: sistema visual.
 
-## 🧞 Commands
+Archivo y Commit Mono se sirven localmente con sus licencias. Las imágenes públicas de Uribe’s School y catmap son capturas; los diagramas WWL están identificados como representaciones del funcionamiento.
 
-All commands are run from the root of the project, from a terminal:
+## Animación
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Se eligió [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) para enlazar una nube continua al scroll nativo. Canvas 2D interpola las mismas partículas entre siete formas geométricas, desplaza su posición y añade profundidad y movimiento discreto. El progreso se suaviza durante 550 ms y responde también al scroll inverso y a los saltos por anclas. anime.js y Motion se evaluaron; el requisito final de scroll continuo se implementa con GSAP.
 
-## 👀 Want to learn more?
+La nube permanece visible en el fondo durante todo el recorrido, a un máximo de 30 dibujos por segundo, 1800 puntos en escritorio y 600 en móvil, con DPR máximo 1,5. Se pausa con la pestaña oculta y muestra formas estáticas con movimiento reducido. Las imágenes de proyectos están siempre visibles en marcos editoriales y no participan en la animación. Sin JavaScript o Canvas, el terreno de respaldo, diagramas y contenido siguen disponibles.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Header y hero suman `100vh`; cada trabajo usa `md:h-screen`, con mínimo de pantalla y altura extensible en móvil. La nube se proyecta al espacio reservado opuesto al visual, y excluye completamente los puntos sobre textos, diagramas y marcos durante el scroll.
+
+Astro: [i18n](https://docs.astro.build/en/guides/internationalization/), [scripts de cliente](https://docs.astro.build/en/guides/client-side-scripts/) y [estilos](https://docs.astro.build/en/guides/styling/).

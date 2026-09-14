@@ -1,0 +1,30 @@
+﻿{
+    "schemaVersion":  1,
+    "method":  "manual-cua-and-independent-review",
+    "approvedComposition":  ".impeccable/mocks/decision/horizonte.png",
+    "spec":  ".impeccable/build/spec.json",
+    "automaticState":  ".impeccable/build/state.json",
+    "automaticGates":  "unavailable; retained open without fabricated or forced passes",
+    "authorizedAdaptation":  "Latest user instruction: persistent procedural cloud follows scroll per section; no particle image reveal; identity frames; GSAP and Tailwind.",
+    "comparison":  {
+                       "historicalInitialOverall":  0.7705,
+                       "historicalBeforeFullscreenOverall":  0.7363,
+                       "classification":  "Historical drift; fullscreen layout explicitly user-authorized",
+                       "report":  ".impeccable/review/diff/final/report.json"
+                   },
+    "regionAdjudication":  ".impeccable/review/fullscreen-finish-review.md",
+    "evidence":  ".impeccable/review/fullscreen-validation.md",
+    "capturePaths":  [
+                         "fullscreen-desktop.png",
+                         "fullscreen-mobile.png",
+                         "fullscreen-hero-desktop.png",
+                         "fullscreen-hero-mobile.png"
+                     ],
+    "initialIndependentDisposition":  "fix",
+    "latestFullReviewDisposition":  "ship",
+    "latestFullReview":  ".impeccable/review/fullscreen-finish-review.md",
+    "finalIndependentDisposition":  "ship",
+    "finalIndependentVerdict":  ".impeccable/review/fullscreen-finish-review.md",
+    "finalVerdictScope":  "Latest authorized fullscreen hero/header and projects, opposite-image cloud and protected content. Four scoped captures valid, no material fixes. Automatic phases remain unavailable/pending; not an automatic phase-gate pass.",
+    "scope":  "Manual fidelity evidence; not an automatic font-ranking or phase-gate pass."
+}

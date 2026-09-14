@@ -1,0 +1,20 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import {copy, type Locale} from '../data/portfolio';
+import {container, focus} from '../styles/patterns';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+const t = copy[locale];
+---
+<header class:list={[container,'site-header relative z-10 flex h-32 flex-wrap items-center justify-between gap-0 border-b border-rule bg-paper/90 py-4 md:h-[74px] md:flex-nowrap md:justify-start md:gap-6 md:py-0 lg:gap-12']} data-cloud-quiet>
+  <a class:list={['brand inline-flex items-center gap-3 whitespace-nowrap text-[clamp(12px,3.85vw,17px)] leading-tight no-underline md:gap-4 md:text-xl',focus]} href="#inicio" aria-label="Luis Felipe Poma Astete"><span class="brand-dot size-2.5 shrink-0 rounded-full bg-electric md:size-[15px]" aria-hidden="true"></span>Luis Felipe Poma Astete</a>
+  <nav aria-label={t.navigation} class:list={['main-nav order-3 mt-3 flex w-full items-center gap-4 text-sm md:order-none md:mt-0 md:ml-auto md:w-auto md:gap-3 md:text-base lg:gap-4 [&_a]:inline-flex [&_a]:min-h-8 [&_a]:items-center [&_a]:py-1 [&_a]:no-underline [&_a]:transition-colors [&_a]:hover:text-electric md:[&_a]:min-h-12 [&_a]:focus-visible:outline-2 [&_a]:focus-visible:outline-offset-6 [&_a]:focus-visible:outline-electric']}>
+    <a href="#trabajo">{t.work}</a><span class="nav-slash" aria-hidden="true">/</span>
+    <a href="#sobre-mi">{t.about}</a><span class="nav-slash" aria-hidden="true">/</span>
+    <a href="#contacto">{t.contact}</a>
+  </nav>
+  <nav class="language-nav flex items-center gap-3 font-mono text-xs md:gap-4 md:border-l md:border-rule md:pl-6 md:text-sm lg:pl-12 [&_a]:py-3 [&_a]:no-underline [&_a]:hover:text-electric [&_a[aria-current]]:font-semibold [&_a[aria-current]]:text-electric [&_a]:focus-visible:outline-2 [&_a]:focus-visible:outline-offset-6 [&_a]:focus-visible:outline-electric" aria-label={t.language}>
+    <a href={getRelativeLocaleUrl('es')} lang="es" hreflang="es" aria-current={locale === 'es' ? 'page' : undefined} aria-label="Español">ES</a><span aria-hidden="true">/</span>
+    <a href={getRelativeLocaleUrl('en')} lang="en" hreflang="en" aria-current={locale === 'en' ? 'page' : undefined} aria-label="English">EN</a>
+  </nav>
+</header>

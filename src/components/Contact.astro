@@ -1,0 +1,23 @@
+---
+import {copy, profile, type Locale} from '../data/portfolio';
+import Action from './Action.astro';
+import Icon from './Icon.astro';
+import {container, sectionHeading, action, focus} from '../styles/patterns';
+interface Props {locale: Locale}
+const {locale} = Astro.props;
+const t = copy[locale];
+---
+<section class:list={[container,'contact relative z-2 border-t border-rule pt-16 pb-10 md:pt-24 md:pb-16']} id="contacto" aria-labelledby="contact-title" data-scene="contact">
+  <h2 class:list={[sectionHeading,'max-w-[1100px]']} id="contact-title" data-cloud-quiet>{t.contactHeading}</h2>
+  <p class="contact-intro mt-6 text-lg leading-normal md:text-[22px]" data-cloud-quiet>{t.contactText}</p>
+  <a class:list={['email-address mt-8 inline-block max-w-full text-[clamp(28px,7.8vw,48px)] leading-tight font-medium tracking-[-.03em] wrap-anywhere underline decoration-1 underline-offset-7 transition-colors hover:text-electric md:mt-10 md:text-[clamp(30px,5.1vw,78px)] md:tracking-[-.04em] md:underline-offset-12',focus]} href={'mailto:' + profile.email} data-cloud-quiet>{profile.email}</a>
+  <div class="contact-actions mt-6 flex flex-wrap items-center gap-6 md:mt-8 md:gap-8" data-cloud-quiet>
+    <Action href={'mailto:' + profile.email} primary>{t.sendEmail}</Action>
+    <button class:list={['copy-email action action-link cursor-pointer border-0 bg-transparent py-3 hover:text-electric disabled:cursor-wait disabled:opacity-60',action]} type="button" data-copy-email={profile.email} data-pending={t.copying} data-success={t.copied} data-error={t.copyFailure} hidden><span>{t.copyEmail}</span><Icon name="copy" /></button>
+  </div>
+  <p class="copy-status mt-4 min-h-6 max-w-[70ch] text-sm leading-normal text-muted md:text-[15px]" role="status" aria-live="polite" aria-atomic="true" data-copy-status data-cloud-quiet></p>
+  <div class="contact-bottom mt-10 flex flex-col items-start gap-6 border-t border-rule pt-6 md:mt-16 md:flex-row md:items-center md:justify-between md:gap-8 md:pt-8" data-cloud-quiet>
+    <nav class="social-links flex gap-6 md:gap-8 [&_a]:inline-flex [&_a]:min-h-12 [&_a]:items-center [&_a]:gap-2 [&_a]:text-sm [&_a]:no-underline [&_a]:hover:text-electric md:[&_a]:gap-3 md:[&_a]:text-base [&_a]:focus-visible:outline-2 [&_a]:focus-visible:outline-offset-6 [&_a]:focus-visible:outline-electric" aria-label={t.social}><a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label={'GitHub (' + t.newTab + ')'}><Icon name="github" />GitHub<Icon name="arrow" size={16} /></a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label={'LinkedIn (' + t.newTab + ')'}><Icon name="linkedin" />LinkedIn<Icon name="arrow" size={16} /></a></nav>
+    <Action href={profile.cv.url} download icon="download" class="cv-link gap-6 text-left text-base"><span>{t.cv}<small class="mt-1 block font-mono text-[11px] text-muted">{t.cvLanguage}</small></span></Action>
+  </div>
+</section>

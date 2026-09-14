@@ -1,0 +1,174 @@
+{
+  "regions": [
+    {
+      "id": "name",
+      "kind": "text",
+      "note": "Luis Felipe Poma",
+      "grid": "A0:B0"
+    },
+    {
+      "id": "dot",
+      "kind": "chrome",
+      "box": {
+        "x": 0.042317708333333336,
+        "y": 0.029296875,
+        "w": 0.010416666666666666,
+        "h": 0.015625
+      },
+      "note": "blue status circle",
+      "grid": "A0:A0"
+    },
+    {
+      "id": "nav",
+      "kind": "text",
+      "note": "Trabajo / Sobre mí / Contacto",
+      "grid": "G0:I0"
+    },
+    {
+      "id": "language",
+      "kind": "control",
+      "note": "ES / EN language selector",
+      "grid": "I0:J0"
+    },
+    {
+      "id": "top-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.04296875,
+        "y": 0.0703125,
+        "w": 0.9147135416666666,
+        "h": 0.0009765625
+      },
+      "note": "one pixel horizontal separator",
+      "grid": "A0:J0"
+    },
+    {
+      "id": "headline",
+      "kind": "text",
+      "note": "Ingeniero de solid bold headline",
+      "grid": "A1:G2"
+    },
+    {
+      "id": "headline-outline",
+      "kind": "text",
+      "note": "software. outlined headline",
+      "grid": "A2:E3"
+    },
+    {
+      "id": "specialty",
+      "kind": "text",
+      "note": "Backend e IA aplicada.",
+      "grid": "A4:D4"
+    },
+    {
+      "id": "value",
+      "kind": "text",
+      "note": "Construyo servicios escalables y productos en tiempo real que convierten datos complejos en herramientas útiles",
+      "grid": "A4:E5"
+    },
+    {
+      "id": "cta",
+      "kind": "control",
+      "note": "blue Ver trabajo button",
+      "grid": "A5:B6"
+    },
+    {
+      "id": "talk",
+      "kind": "control",
+      "note": "Hablemos link with arrow",
+      "grid": "B5:C6"
+    },
+    {
+      "id": "terrain",
+      "kind": "plate",
+      "box": {
+        "x": 0,
+        "y": 0.341796875,
+        "w": 1,
+        "h": 0.4208984375
+      },
+      "bleed": true,
+      "note": "panoramic abstract terrain made of black point cloud dots, sparse electric blue particles. Low left terrain rises into two mountainous ridges at right. Responds through a single continuous canvas transformation.",
+      "grid": "A3:J7"
+    },
+    {
+      "id": "paper",
+      "kind": "texture",
+      "box": {
+        "x": 0.6217447916666666,
+        "y": 0.1083984375,
+        "w": 0.09375,
+        "h": 0.15625
+      },
+      "note": "subtle warm paper grain without any ink",
+      "grid": "G1:H2"
+    },
+    {
+      "id": "location",
+      "kind": "text",
+      "note": "LIMA, PERÚ / UTC-5",
+      "grid": "A7:B7"
+    },
+    {
+      "id": "matter",
+      "kind": "text",
+      "note": "MATERIA DIGITAL / 001",
+      "grid": "I7:J7"
+    },
+    {
+      "id": "work-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.04296875,
+        "y": 0.8134765625,
+        "w": 0.9147135416666666,
+        "h": 0.0009765625
+      },
+      "note": "thin horizontal rule before selected work",
+      "grid": "A8:J8"
+    },
+    {
+      "id": "work-index",
+      "kind": "text",
+      "note": "01 TRABAJO SELECCIONADO",
+      "grid": "A8:B9"
+    },
+    {
+      "id": "work-title",
+      "kind": "text",
+      "note": "Monitoreo industrial",
+      "grid": "C8:E9"
+    },
+    {
+      "id": "work-stack",
+      "kind": "text",
+      "note": "WWL · Python / FastAPI / React",
+      "grid": "C9:E9"
+    },
+    {
+      "id": "work-divider",
+      "kind": "chrome",
+      "box": {
+        "x": 0.205078125,
+        "y": 0.8486328125,
+        "w": 0.0006510416666666666,
+        "h": 0.099609375
+      },
+      "note": "thin vertical divider before project title",
+      "grid": "C8:C9"
+    },
+    {
+      "id": "work-flow",
+      "kind": "chrome",
+      "codeDrawn": true,
+      "box": {
+        "x": 0.6666666666666666,
+        "y": 0.849609375,
+        "w": 0.279296875,
+        "h": 0.1015625
+      },
+      "note": "three countable nodes and arrows: radio sensor, three service blocks, bar display, with labels Sensores, Servicios, Dashboard. Semantic system representation; all geometry explicitly countable.",
+      "grid": "G8:J9"
+    }
+  ]
+}

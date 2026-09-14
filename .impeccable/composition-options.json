@@ -1,0 +1,39 @@
+{
+  "title": "Tu portafolio — tres composiciones",
+  "question": "Elige la composición que mejor represente tu trabajo. Las tres conservan la identidad del mockup y el contenido acordado.",
+  "options": [
+    {
+      "id": "horizonte",
+      "label": "01 · Horizonte digital",
+      "thesis": "Un titular ancho abre el recorrido y el terreno digital une las secciones.",
+      "palette": ["#f2efe7", "#11110f", "#3157ff"],
+      "materials": ["papel", "nube topográfica", "reglas finas"],
+      "viewport": "Titular de gran escala arriba, propuesta y acciones a la izquierda; terreno de puntos extendido en la franja inferior y primer caso a la vista.",
+      "risk": "La imagen es más panorámica y menos escultórica que en el mockup.",
+      "comp": ".impeccable/mocks/decision/horizonte.png"
+    },
+    {
+      "id": "campo",
+      "label": "02 · Campo técnico",
+      "thesis": "Texto y materia comparten el viewport como un folio de ingeniería.",
+      "palette": ["#f2efe7", "#11110f", "#3157ff"],
+      "materials": ["papel", "puntos y voxels", "marcas de coordenadas"],
+      "viewport": "Titular y acciones en la mitad izquierda; una nube topográfica ocupa un campo reservado a la derecha, con un índice discreto de proyectos debajo.",
+      "risk": "El marco técnico debe mantenerse discreto para que el trabajo siga siendo protagonista.",
+      "comp": ".impeccable/mocks/decision/campo.png"
+    },
+    {
+      "id": "ensayo",
+      "label": "03 · Ensayo tipográfico",
+      "thesis": "La tipografía lleva el impacto y la nube actúa como contrapunto preciso.",
+      "palette": ["#f2efe7", "#11110f", "#3157ff"],
+      "materials": ["papel", "contorno tipográfico", "dithering"],
+      "viewport": "Un titular grande domina los dos tercios izquierdos; la nube se encuadra en el tercio derecho y las acciones quedan debajo de la propuesta.",
+      "risk": "Necesita una adaptación móvil cuidadosa para conservar escala y legibilidad.",
+      "comp": ".impeccable/mocks/decision/ensayo.png"
+    }
+  ],
+  "reroll": true,
+  "steer": true,
+  "buildPath": {"value": "comp", "toggle": true}
+}

@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-14T21:23:16.670Z",
+  "title": "Design System: Luis Felipe Poma Astete",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#f2efe7",
+        "tonalRamp": [
+          "oklch(15% 0.01112 89.72)",
+          "oklch(26.43% 0.01112 89.72)",
+          "oklch(37.86% 0.01112 89.72)",
+          "oklch(49.29% 0.01112 89.72)",
+          "oklch(60.71% 0.01112 89.72)",
+          "oklch(72.14% 0.01112 89.72)",
+          "oklch(83.57% 0.01112 89.72)",
+          "oklch(95% 0.01112 89.72)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#11110f",
+        "tonalRamp": [
+          "oklch(15% 0.00402 106.80)",
+          "oklch(26.43% 0.00402 106.80)",
+          "oklch(37.86% 0.00402 106.80)",
+          "oklch(49.29% 0.00402 106.80)",
+          "oklch(60.71% 0.00402 106.80)",
+          "oklch(72.14% 0.00402 106.80)",
+          "oklch(83.57% 0.00402 106.80)",
+          "oklch(95% 0.00402 106.80)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      },
+      "electric": {
+        "role": "primary",
+        "displayName": "Azul eléctrico",
+        "canonical": "#3157ff",
+        "tonalRamp": [
+          "oklch(15% 0.25070 266.94)",
+          "oklch(26.43% 0.25070 266.94)",
+          "oklch(37.86% 0.25070 266.94)",
+          "oklch(49.29% 0.25070 266.94)",
+          "oklch(60.71% 0.25070 266.94)",
+          "oklch(72.14% 0.25070 266.94)",
+          "oklch(83.57% 0.25070 266.94)",
+          "oklch(95% 0.25070 266.94)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Texto secundario",
+        "canonical": "#66635c",
+        "tonalRamp": [
+          "oklch(15% 0.01153 87.52)",
+          "oklch(26.43% 0.01153 87.52)",
+          "oklch(37.86% 0.01153 87.52)",
+          "oklch(49.29% 0.01153 87.52)",
+          "oklch(60.71% 0.01153 87.52)",
+          "oklch(72.14% 0.01153 87.52)",
+          "oklch(83.57% 0.01153 87.52)",
+          "oklch(95% 0.01153 87.52)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Regla",
+        "canonical": "rgb(17 17 15 / .24)",
+        "tonalRamp": [
+          "oklch(15% 0.00402 106.80 / .24)",
+          "oklch(26.43% 0.00402 106.80 / .24)",
+          "oklch(37.86% 0.00402 106.80 / .24)",
+          "oklch(49.29% 0.00402 106.80 / .24)",
+          "oklch(60.71% 0.00402 106.80 / .24)",
+          "oklch(72.14% 0.00402 106.80 / .24)",
+          "oklch(83.57% 0.00402 106.80 / .24)",
+          "oklch(95% 0.00402 106.80 / .24)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Texto secundario oscuro",
+        "canonical": "#b9b6af",
+        "tonalRamp": [
+          "oklch(15% 0.01036 87.49)",
+          "oklch(26.43% 0.01036 87.49)",
+          "oklch(37.86% 0.01036 87.49)",
+          "oklch(49.29% 0.01036 87.49)",
+          "oklch(60.71% 0.01036 87.49)",
+          "oklch(72.14% 0.01036 87.49)",
+          "oklch(83.57% 0.01036 87.49)",
+          "oklch(95% 0.01036 87.49)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      },
+      "dark-electric": {
+        "role": "primary",
+        "displayName": "Azul de campo oscuro",
+        "canonical": "#91a4ff",
+        "tonalRamp": [
+          "oklch(15% 0.13332 273.77)",
+          "oklch(26.43% 0.13332 273.77)",
+          "oklch(37.86% 0.13332 273.77)",
+          "oklch(49.29% 0.13332 273.77)",
+          "oklch(60.71% 0.13332 273.77)",
+          "oklch(72.14% 0.13332 273.77)",
+          "oklch(83.57% 0.13332 273.77)",
+          "oklch(95% 0.13332 273.77)"
+        ],
+        "tonalRampNote": "Síntesis para previsualización del panel; no utilizada en la interfaz."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Título inicial",
+        "purpose": "Dos líneas de Archivo, sólida y de contorno; escala limitada también por la altura de la ventana.",
+        "responsive": {
+          "mobile": "clamp(40px,11.8vw,88px), line-height .92",
+          "md": "min(10.16vw,18vh), line-height .81",
+          "lg": "frontmatter"
+        },
+        "outline": {
+          "mobile": "1px",
+          "md": "1.6px"
+        }
+      },
+      "headline": {
+        "displayName": "Título de sección",
+        "purpose": "Biografía y contacto.",
+        "responsive": {
+          "mobile": "clamp(44px,10.6vw,64px)",
+          "md": "frontmatter"
+        }
+      },
+      "title": {
+        "displayName": "Título de proyecto",
+        "purpose": "Los cuatro casos.",
+        "responsive": {
+          "mobile": "36px",
+          "md": "frontmatter"
+        }
+      },
+      "body": {
+        "displayName": "Lectura",
+        "purpose": "Descripción, rol y resumen; variaciones locales entre 18px y 24px."
+      },
+      "label": {
+        "displayName": "Metadatos",
+        "purpose": "Commit Mono para índice, cliente, tecnología, categorías y pies; variantes de 10px y 11px."
+      },
+      "action": {
+        "displayName": "Acciones",
+        "purpose": "14px en móvil, 16px en escritorio; principal de peso 600."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-editorial",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Transiciones de estado de las acciones."
+      },
+      {
+        "name": "action-color",
+        "value": "160ms",
+        "purpose": "Color de acciones."
+      },
+      {
+        "name": "action-arrow",
+        "value": "180ms",
+        "purpose": "Traslación diagonal de 2px al pasar el puntero por una acción secundaria."
+      },
+      {
+        "name": "scroll-scrub",
+        "value": "0.55s",
+        "purpose": "Interpolación común de siete mundos geométricos mediante ScrollTrigger y scroll nativo; la forma se alcanza al centrar la sección."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "static",
+        "purpose": "Mundo procedural más cercano al estado de scroll; sin respiración ni parallax."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "47.5rem"
+      },
+      {
+        "name": "lg",
+        "value": "68.75rem"
+      }
+    ],
+    "layout": {
+      "containerMaximum": "1440px",
+      "gutterMobile": "24px",
+      "gutterDesktop": "clamp(24px,4.1667vw,64px)",
+      "projectColumns": {
+        "mobile": "1",
+        "md": "2 / 5 / 5",
+        "lg": "2 / 6 / 4"
+      },
+      "primaryRhythm": "8px",
+      "projectHeight": {
+        "mobile": "auto; min-height:100vh",
+        "desktop": "100vh",
+        "alignment": "vertically centered"
+      },
+      "projectCloudSpace": {
+        "mobile": "176px",
+        "desktop": "clamp(160px,28vh,320px)",
+        "desktopPosition": "below copy on the left; opposite the right visual",
+        "mobilePosition": "between copy and image"
+      },
+      "headerHeight": {
+        "mobile": "128px",
+        "desktop": "74px"
+      },
+      "heroHeight": {
+        "mobile": "calc(100vh - 128px)",
+        "desktop": "calc(100vh - 74px)",
+        "openingTotal": "100vh including header"
+      },
+      "heroTopPadding": {
+        "mobile": "40px",
+        "desktop": "clamp(24px,6vh,64px)"
+      },
+      "heroBottomElements": "Absolute fallback terrain and metadata inside hero at all breakpoints."
+    },
+    "focus": {
+      "width": "2px",
+      "offset": "6px",
+      "colorToken": "electric"
+    },
+    "grain": {
+      "opacity": 0.12,
+      "blendMode": "multiply",
+      "filter": "sepia(1) hue-rotate(180deg) saturate(2)",
+      "purpose": "Corrección cromática del grano para conservar el papel cálido aprobado."
+    },
+    "matter": {
+      "worlds": [
+        "terrain",
+        "monitoreo",
+        "documentos",
+        "uribe",
+        "catmap",
+        "about",
+        "contact"
+      ],
+      "canvas": "one fixed decorative viewport background",
+      "points": {
+        "desktop": 1800,
+        "mobile": 600
+      },
+      "terrainDistribution": {
+        "contours": 12,
+        "foregroundFraction": 0.2,
+        "sampling": "irregular stippling along staggered contours",
+        "uniformMesh": false
+      },
+      "maximumDpr": 1.5,
+      "maximumDrawsPerSecond": 30,
+      "quietRectMargin": "16px",
+      "darkPointToken": "paper",
+      "darkAccentToken": "dark-electric",
+      "reducedPreference": "manual OR operating system",
+      "hiddenPageBehavior": "ticker removed on visibilitychange and pagehide",
+      "fallback": "generated terrain raster only without JavaScript or Canvas",
+      "imageBehavior": "complete static screenshots and diagrams",
+      "quietRegionBehavior": "Exclude complete particle footprints over marked copy, diagrams and image frames.",
+      "projectProjection": {
+        "scenes": [
+          "monitoreo",
+          "documentos",
+          "uribe",
+          "catmap"
+        ],
+        "coordinateSystem": "local 0..1 projected into data-cloud-zone",
+        "interpolation": "pixel positions of source and target planes",
+        "verticalClampMargin": "16px",
+        "sectionAnchor": "sectionTop + max(0, (sectionHeight - viewportHeight) / 2)"
+      }
+    },
+    "provenance": {
+      "mode": "scan",
+      "sources": [
+        "src/styles/tailwind.css",
+        "src/styles/patterns.ts",
+        "src/components/*.astro",
+        "src/layouts/PortfolioLayout.astro",
+        "src/scripts/portfolio.ts",
+        "src/scripts/matter-scenes.ts"
+      ],
+      "authority": "PRODUCT.md and .impeccable/portfolio-contract.md; latest user correction of 2026-09-14",
+      "tonalRamps": "Synthetic OKLCH panel previews only; no interface ramp tokens exist.",
+      "snippets": "Literal CSS translations of implemented Tailwind recipes; source interface styling remains Tailwind utilities."
+    }
+  },
+  "components": [
+    {
+      "name": "Acción principal",
+      "kind": "button",
+      "refersTo": "action-primary",
+      "description": "Acción principal existente de trabajo o correo.",
+      "html": "<a class=\"ds-action-primary\" href=\"#trabajo\">Ver trabajo<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
+      "css": ".ds-action-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 24px;border-radius:0;background:var(--color-electric, #3157ff);color:var(--color-paper, #f2efe7);font-family:var(--font-sans, Archivo, sans-serif);font-size:14px;font-weight:600;line-height:1.3;text-decoration:none;transition:background-color 160ms cubic-bezier(.16,1,.3,1);}.ds-action-primary:hover{background:var(--color-ink, #11110f);}.ds-action-primary:focus-visible{outline:2px solid var(--color-electric, #3157ff);outline-offset:6px;}@media(min-width:760px){.ds-action-primary{gap:16px;padding:16px 32px;font-size:16px;}}@media(prefers-reduced-motion:reduce){.ds-action-primary{transition:none;}}"
+    },
+    {
+      "name": "Acción secundaria",
+      "kind": "button",
+      "refersTo": "action-secondary",
+      "description": "Enlace abierto con flecha; variante subrayada del hero.",
+      "html": "<a class=\"ds-action-secondary\" href=\"#contacto\">Hablemos<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
+      "css": ".ds-action-secondary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 0;border-radius:0;background:transparent;color:var(--color-ink, #11110f);font-family:var(--font-sans, Archivo, sans-serif);font-size:14px;font-weight:500;line-height:1.3;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px;transition:color 160ms cubic-bezier(.16,1,.3,1);}.ds-action-secondary:hover{color:var(--color-electric, #3157ff);}.ds-action-secondary svg{transition:transform 180ms;}.ds-action-secondary:hover svg{transform:translate(2px,-2px);}.ds-action-secondary:focus-visible{outline:2px solid var(--color-electric, #3157ff);outline-offset:6px;}@media(min-width:760px){.ds-action-secondary{gap:16px;font-size:16px;}}@media(prefers-reduced-motion:reduce){.ds-action-secondary,.ds-action-secondary svg{transition:none;}.ds-action-secondary:hover svg{transform:none;}}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Marca, navegación por anclas y selector ES/EN; encabezado de 128px en móvil y 74px en escritorio, incluido en la pantalla inicial.",
+      "html": "<header class=\"ds-nav\" data-cloud-quiet><a class=\"ds-nav-brand\" href=\"#inicio\"><span class=\"ds-nav-dot\" aria-hidden=\"true\"></span>Luis Felipe Poma Astete</a><nav class=\"ds-nav-main\" aria-label=\"Navegación principal\"><a href=\"#trabajo\">Trabajo</a><span aria-hidden=\"true\">/</span><a href=\"#sobre-mi\">Sobre mí</a><span aria-hidden=\"true\">/</span><a href=\"#contacto\">Contacto</a></nav><nav class=\"ds-nav-language\" aria-label=\"Idioma\"><a href=\"/\" aria-current=\"page\" lang=\"es\" hreflang=\"es\">ES</a><span aria-hidden=\"true\">/</span><a href=\"/en/\" lang=\"en\" hreflang=\"en\">EN</a></nav></header>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;height:128px;box-sizing:border-box;padding:16px 0;border-bottom:1px solid var(--color-rule, rgb(17 17 15 / .24));background:rgb(242 239 231 / .9);color:var(--color-ink, #11110f);font-family:var(--font-sans, Archivo, sans-serif);}.ds-nav a{color:inherit;text-decoration:none;}.ds-nav a:hover{color:var(--color-electric, #3157ff);}.ds-nav a:focus-visible{outline:2px solid var(--color-electric, #3157ff);outline-offset:6px;}.ds-nav-brand{display:inline-flex;align-items:center;gap:12px;white-space:nowrap;font-size:clamp(12px,3.85vw,17px);line-height:1.25;}.ds-nav-dot{width:10px;height:10px;border-radius:9999px;background:var(--color-electric, #3157ff);}.ds-nav-main{display:flex;align-items:center;order:3;width:100%;gap:16px;margin-top:12px;font-size:14px;line-height:1.5;}.ds-nav-main a{display:inline-flex;align-items:center;min-height:32px;padding:4px 0;transition:color 150ms;}.ds-nav-language{display:flex;align-items:center;gap:12px;font-family:var(--font-mono, \"Commit Mono\", monospace);font-size:12px;line-height:1.5;}.ds-nav-language a{padding:12px 0;}.ds-nav-language a[aria-current]{color:var(--color-electric, #3157ff);font-weight:600;}@media(min-width:760px){.ds-nav{height:74px;flex-wrap:nowrap;justify-content:flex-start;gap:24px;padding:0;}.ds-nav-brand{gap:16px;font-size:20px;}.ds-nav-dot{width:15px;height:15px;}.ds-nav-main{order:0;width:auto;gap:12px;margin:0 0 0 auto;font-size:16px;}.ds-nav-main a{min-height:48px;}.ds-nav-language{gap:16px;border-left:1px solid var(--color-rule, rgb(17 17 15 / .24));padding-left:24px;font-size:14px;}}@media(min-width:1100px){.ds-nav{gap:48px;}.ds-nav-main{gap:16px;}.ds-nav-language{padding-left:48px;}}@media(prefers-reduced-motion:reduce){.ds-nav-main a{transition:none;}}"
+    },
+    {
+      "name": "Marco de captura",
+      "kind": "card",
+      "refersTo": "project-frame",
+      "description": "Marco existente de capturas públicas. El plano SVG es una muestra neutral del contenedor, no una captura del producto.",
+      "html": "<figure class=\"ds-frame-figure\"><div class=\"ds-frame\"><div class=\"ds-frame-bar\"><span>03 / Uribe’s School</span><span class=\"ds-frame-stack\">Astro</span></div><svg class=\"ds-frame-plane\" viewBox=\"0 0 360 190\" role=\"img\" aria-label=\"Plano de muestra del marco\"><rect width=\"360\" height=\"190\" fill=\"#f2efe7\"/><path d=\"M0 0H360V190H0Z\" fill=\"none\" stroke=\"#11110f\" stroke-opacity=\".24\"/></svg></div><figcaption class=\"ds-frame-caption\">Captura de la web pública · uribe-school.vercel.app</figcaption></figure>",
+      "css": ".ds-frame-figure{width:100%;margin:0;}.ds-frame{position:relative;isolation:isolate;border:1px solid rgb(17 17 15 / .3);padding:8px;border-radius:0;background:var(--color-paper, #f2efe7);}.ds-frame:before,.ds-frame:after{content:\"\";position:absolute;width:6px;height:6px;background:var(--color-electric, #3157ff);}.ds-frame:before{top:-1px;left:-1px;}.ds-frame:after{right:-1px;bottom:-1px;}.ds-frame-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--color-rule, rgb(17 17 15 / .24));font-family:var(--font-mono, \"Commit Mono\", monospace);font-size:10px;line-height:1.5;color:var(--color-muted, #66635c);}.ds-frame-stack{color:var(--color-electric, #3157ff);}.ds-frame-plane{display:block;width:100%;height:auto;}.ds-frame-caption{margin-top:12px;font-family:var(--font-mono, \"Commit Mono\", monospace);font-size:10px;line-height:1.5;color:var(--color-muted, #66635c);}@media(min-width:760px){.ds-frame-caption{margin-top:16px;font-size:11px;}}"
+    },
+    {
+      "name": "Título de sección",
+      "kind": "custom",
+      "refersTo": "section-title",
+      "description": "Receta compartida por biografía y contacto.",
+      "html": "<h2 class=\"ds-section-title\">Código con criterio.</h2>",
+      "css": ".ds-section-title{margin:0;color:var(--color-ink, #11110f);font-family:var(--font-sans, Archivo, sans-serif);font-size:clamp(44px,10.6vw,64px);font-weight:650;line-height:1.05;letter-spacing:-.04em;text-wrap:balance;}@media(min-width:760px){.ds-section-title{font-size:clamp(48px,5.21vw,80px);}}"
+    },
+    {
+      "name": "Herramientas",
+      "kind": "custom",
+      "refersTo": "tools",
+      "description": "Grupos de herramientas reales: categorías mono y listas abiertas.",
+      "html": "<div class=\"ds-tools\"><div class=\"ds-tool-group\"><h4 class=\"ds-tool-title\">Backend</h4><ul class=\"ds-tool-list\"><li>Python</li><li>FastAPI</li></ul></div><div class=\"ds-tool-group\"><h4 class=\"ds-tool-title\">Web</h4><ul class=\"ds-tool-list\"><li>TypeScript</li><li>React</li><li>Astro</li></ul></div><div class=\"ds-tool-group\"><h4 class=\"ds-tool-title\">Datos e IA</h4><ul class=\"ds-tool-list\"><li>PostgreSQL</li><li>TensorFlow</li><li>PyTorch</li></ul></div><div class=\"ds-tool-group\"><h4 class=\"ds-tool-title\">Infraestructura</h4><ul class=\"ds-tool-list\"><li>Docker</li><li>AWS</li><li>Git</li></ul></div></div>",
+      "css": ".ds-tools{display:grid;grid-template-columns:1fr;gap:24px;border-top:1px solid var(--color-rule, rgb(17 17 15 / .24));padding-top:24px;color:var(--color-ink, #11110f);}.ds-tool-group{display:grid;grid-template-columns:1fr 1.45fr;gap:16px;}.ds-tool-title{margin:4px 0 0;font-family:var(--font-mono, \"Commit Mono\", monospace);font-size:10px;font-weight:400;line-height:1.5;text-transform:uppercase;color:var(--color-muted, #66635c);}.ds-tool-list{margin:0;padding:0;list-style:none;font-family:var(--font-sans, Archivo, sans-serif);font-size:18px;line-height:1.65;}@media(min-width:760px){.ds-tools{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;}.ds-tool-group{display:block;}.ds-tool-title{margin:0 0 16px;font-size:12px;}.ds-tool-list{font-size:20px;line-height:1.8;}}"
+    },
+    {
+      "name": "Copiar correo",
+      "kind": "button",
+      "refersTo": "copy-email",
+      "description": "Control de copia con estado polite; los selectores aria-busy y disabled permiten previsualizar el estado ocupado.",
+      "html": "<div class=\"ds-copy\"><button class=\"ds-copy-button\" type=\"button\"><span>Copiar correo</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"12\" height=\"12\" rx=\"1\"/><path d=\"M15 8V4H4v11h4\"/></svg></button><p class=\"ds-copy-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"></p></div>",
+      "css": ".ds-copy-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;border:0;border-radius:0;padding:12px 0;background:transparent;color:var(--color-ink, #11110f);font-family:var(--font-sans, Archivo, sans-serif);font-size:14px;font-weight:500;line-height:1.3;cursor:pointer;transition:color 160ms cubic-bezier(.16,1,.3,1);}.ds-copy-button:hover{color:var(--color-electric, #3157ff);}.ds-copy-button:focus-visible{outline:2px solid var(--color-electric, #3157ff);outline-offset:6px;}.ds-copy-button:disabled,.ds-copy-button[aria-busy=true]{opacity:.6;cursor:wait;}.ds-copy-status{min-height:24px;max-width:70ch;margin:16px 0 0;color:var(--color-muted, #66635c);font-family:var(--font-sans, Archivo, sans-serif);font-size:14px;line-height:1.5;}@media(min-width:760px){.ds-copy-button{gap:16px;font-size:16px;}.ds-copy-status{font-size:15px;}}@media(prefers-reduced-motion:reduce){.ds-copy-button{transition:none;}}"
+    },
+    {
+      "name": "Índice de proyecto",
+      "kind": "custom",
+      "refersTo": "project-index",
+      "description": "Índice mono de escritorio; en móvil se integra al título del caso.",
+      "html": "<div class=\"ds-project-index\"><span class=\"ds-project-number\">01</span><span>Trabajo seleccionado</span></div>",
+      "css": ".ds-project-index{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:104px;border-right:1px solid var(--color-rule, rgb(17 17 15 / .24));padding-right:16px;color:var(--color-ink, #11110f);font-family:var(--font-mono, \"Commit Mono\", monospace);font-size:12px;line-height:1.5;text-transform:uppercase;}.ds-project-number{color:var(--color-electric, #3157ff);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;}@media(min-width:1100px){.ds-project-index{padding-right:24px;}}"
+    },
+    {
+      "name": "Título sólido y de contorno",
+      "kind": "custom",
+      "description": "Jerarquía del hero: dos líneas completas de Archivo; variante española existente.",
+      "html": "<h1 class=\"ds-hero-title\"><span class=\"ds-hero-solid\">Ingeniero de</span><span class=\"ds-hero-outline\">software.</span></h1>",
+      "css": ".ds-hero-title{margin:0;color:var(--color-ink, #11110f);font-family:var(--font-sans, Archivo, sans-serif);font-size:clamp(40px,11.8vw,88px);font-weight:800;line-height:.92;letter-spacing:-.04em;}.ds-hero-solid,.ds-hero-outline{display:block;width:max-content;max-width:100%;}.ds-hero-outline{color:transparent;-webkit-text-stroke:1px var(--color-ink, #11110f);}@media(min-width:760px){.ds-hero-title{font-size:min(10.16vw,18vh);line-height:.81;}.ds-hero-outline{-webkit-text-stroke:1.6px var(--color-ink, #11110f);}}@media(min-width:1100px){.ds-hero-title{font-size:clamp(64px,min(10.16vw,18vh),156px);}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Horizonte digital",
+    "overview": "Una composición editorial convierte información compleja en materia digital. El papel cálido, la tinta oscura y el azul eléctrico sostienen títulos grotescos muy grandes, metadatos monoespaciados y separadores finos. La interfaz mantiene una densidad baja y organiza el trabajo en franjas abiertas.\n\nUna sola nube de puntos acompaña todo el recorrido como fondo. Sus formas y posiciones siguen el desplazamiento; el texto, los diagramas y las capturas permanecen completos y legibles por sí mismos. El campo oscuro de extracción documental conserva la misma jerarquía mediante colores invertidos.",
+    "keyCharacteristics": [
+      "Tipografía sólida y de contorno con gran diferencia de escala.",
+      "Superficies planas, esquinas rectas y reglas finas.",
+      "Azul para acciones, índices y pequeños acentos geométricos.",
+      "Materia digital continua y contenido independiente del movimiento.",
+      "El mismo sistema visual en español e inglés."
+    ],
+    "rules": [
+      {
+        "name": "The Legibility Rule",
+        "body": "La nube excluye por completo las zonas de lectura y figuras señaladas, con un margen de (16 px); sobre el campo oscuro, los puntos de tinta se convierten en papel.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scale Rule",
+        "body": "Mantener el contraste entre el título inicial y los metadatos; el título puede superar (6rem), como en la composición aprobada.",
+        "section": "typography"
+      },
+      {
+        "name": "The Complete Content Rule",
+        "body": "Las capturas y diagramas permanecen visibles: no se reconstruyen mediante partículas ni dependen de una animación para aparecer.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** mantener Archivo y Commit Mono locales y las funciones de color del frontmatter.",
+      "**Do** reutilizar el contenedor, las doce columnas y el ritmo de ocho píxeles.",
+      "**Do** conservar contraste, foco visible y contenido completo en ambos idiomas.",
+      "**Do** mantener una sola nube ligada al scroll, ubicarla frente al visual de cada proyecto y excluirla de las zonas de contenido.",
+      "**Do** construir la interfaz con utilidades Tailwind 4 y reservar la hoja de estilo para importación, fuentes y tema."
+    ],
+    "donts": [
+      "**Don't** añadir sombras, brillo, cromados con gradiente o una cuadrícula ornamental de tarjetas redondeadas.",
+      "**Don't** ocultar capturas o diagramas detrás de una transición de partículas.",
+      "**Don't** sustituir la nube en vivo por el terreno raster cuando Canvas está disponible.",
+      "**Don't** añadir selectores CSS de interfaz a la hoja de estilo."
+    ]
+  }
+}

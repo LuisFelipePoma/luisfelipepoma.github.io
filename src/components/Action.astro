@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import {action} from '../styles/patterns';
+interface Props { href: string; primary?: boolean; external?: boolean; download?: boolean; icon?: 'arrow' | 'download' | 'up'; class?: string; label?: string }
+const { href, primary = false, external = false, download = false, icon = 'arrow', class: className = '', label } = Astro.props;
+---
+<a class:list={['action group', action, primary ? 'action-primary bg-electric px-6 py-3.5 font-semibold text-paper hover:bg-ink md:px-8 md:py-4' : 'action-link bg-transparent py-3 hover:text-electric [&_svg]:transition-transform [&_svg]:duration-180 [&_svg]:group-hover:translate-x-0.5 [&_svg]:group-hover:-translate-y-0.5 motion-reduce:[&_svg]:transform-none', className]} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} download={download || undefined} aria-label={label}>
+  <slot /><Icon name={icon} />
+</a>

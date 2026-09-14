@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-09-14T21:26:29.427Z",
+  "files": [
+    {
+      "name": "catmap.Cd-RnR-N_15a4jh.webp",
+      "bytes": 56308
+    },
+    {
+      "name": "catmap.Cd-RnR-N_KnxoX.webp",
+      "bytes": 26000
+    },
+    {
+      "name": "catmap.Cd-RnR-N_kzDof.webp",
+      "bytes": 59078
+    },
+    {
+      "name": "paper._ygXd0ze_2uIS1o.webp",
+      "bytes": 220
+    },
+    {
+      "name": "Portfolio.P0E_iqlR.css",
+      "bytes": 26511,
+      "gzipBytes": 6415
+    },
+    {
+      "name": "PortfolioLayout.astro_astro_type_script_index_0_lang.BI2sx8Ne.js",
+      "bytes": 119588,
+      "gzipBytes": 46828
+    },
+    {
+      "name": "terrain.DVLVfcW4_Z2qfAGm.webp",
+      "bytes": 41702
+    },
+    {
+      "name": "terrain.DVLVfcW4_ZAJMSq.webp",
+      "bytes": 141066
+    },
+    {
+      "name": "terrain.DVLVfcW4_ZqAUMd.webp",
+      "bytes": 211870
+    },
+    {
+      "name": "terrain.DVLVfcW4_ZqEYXT.webp",
+      "bytes": 211618
+    },
+    {
+      "name": "uribe-school.DMwhOQOl_k8NsI.webp",
+      "bytes": 86708
+    },
+    {
+      "name": "uribe-school.DMwhOQOl_Z1YiSwc.webp",
+      "bytes": 69460
+    },
+    {
+      "name": "uribe-school.DMwhOQOl_Z2aWqQf.webp",
+      "bytes": 35286
+    }
+  ],
+  "javascriptBytes": 119588,
+  "javascriptGzipBytes": 46828
+}
