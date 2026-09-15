@@ -179,7 +179,7 @@
       },
       {
         "name": "scroll-scrub",
-        "value": "0.55s",
+        "value": "0.12s",
         "purpose": "Interpolación común de siete mundos geométricos mediante ScrollTrigger y scroll nativo; la forma se alcanza al centrar la sección."
       },
       {
@@ -267,12 +267,14 @@
         "uniformMesh": false
       },
       "maximumDpr": 1.5,
-      "maximumDrawsPerSecond": 30,
+      "drawBehavior": "On demand after scroll, fine-pointer movement, resize or page-state changes; canvas persists while idle.",
+      "drawP95Window": 120,
+      "drawBudgetDecision": "Keep 1800/600 until browser p95 exceeds 10ms; visually compare 1200/400 before adopting.",
       "quietRectMargin": "16px",
       "darkPointToken": "paper",
       "darkAccentToken": "dark-electric",
       "reducedPreference": "manual OR operating system",
-      "hiddenPageBehavior": "ticker removed on visibilitychange and pagehide",
+      "hiddenPageBehavior": "pending draw cancelled on visibilitychange and pagehide",
       "fallback": "generated terrain raster only without JavaScript or Canvas",
       "imageBehavior": "complete static screenshots and diagrams",
       "quietRegionBehavior": "Exclude complete particle footprints over marked copy, diagrams and image frames.",
