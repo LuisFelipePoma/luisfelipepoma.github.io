@@ -1,0 +1,7 @@
+---
+interface Props {scene:string}
+const {scene}=Astro.props;
+---
+<picture class="block h-full w-full" data-matter-fallback aria-hidden="true">
+  <img class="block h-full w-full object-contain" src={'/matter-approved/' + scene + '.png'} alt="" loading={scene === 'terrain' ? 'eager' : 'lazy'} decoding="async" />
+</picture>

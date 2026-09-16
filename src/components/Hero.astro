@@ -1,6 +1,7 @@
 ---
 import { copy, type Locale } from "../data/portfolio";
 import Action from "./Action.astro";
+import MatterFallback from "./MatterFallback.astro";
 import { container, metadata } from "../styles/patterns";
 interface Props {
   locale: Locale;
@@ -18,7 +19,14 @@ const t = copy[locale];
   aria-labelledby="hero-title"
   data-scene="terrain"
 >
-  <div class="relative z-2 w-fit max-w-full" >
+  <div
+    class="hero-matter-space absolute right-0 bottom-10 h-[min(35vh,300px)] w-[75%] md:right-0 md:bottom-[8%] md:h-[64%] md:w-[54%]"
+    data-cloud-zone
+    aria-hidden="true"
+  >
+    <MatterFallback scene="terrain" />
+  </div>
+  <div class="relative z-2 w-fit max-w-full" data-cloud-quiet>
     <h1
       class="hero-title text-[clamp(40px,11.8vw,88px)] leading-[.92] font-extrabold tracking-[-.04em] md:text-[min(10.16vw,18vh)] md:leading-[.81] lg:text-[clamp(64px,min(10.16vw,18vh),156px)]"
       id="hero-title"
@@ -47,6 +55,7 @@ const t = copy[locale];
     </div>
   </div>
   <div
+    data-cloud-quiet
     class:list={[
       metadata,
       "hero-foot absolute right-0 bottom-6 left-0 z-2 flex justify-between gap-4 text-[9px] uppercase md:text-xs [&_span:last-child]:text-right",

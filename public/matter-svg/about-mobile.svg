@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="35 60 930 580" role="img" aria-label="Monograma LFP construido en puntos">
+  <defs><pattern id="grain" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(6)"><circle cx="3" cy="3" r="1.6" fill="#11110f"/><circle cx="10" cy="9" r="1.1" fill="#11110f"/></pattern></defs>
+  <g fill="url(#grain)">
+    <path d="M74 97 H164 V523 H338 V607 H74Z"/><path d="M396 97 H655 V181 H486 V309 H632 V393 H486 V607 H396Z"/><path d="M698 97 H827 C926 97 972 158 972 253 C972 348 922 408 823 408 H788 V607 H698Z M788 181 V324 H824 C863 324 882 304 882 253 C882 203 864 181 823 181Z" fill-rule="evenodd"/>
+  </g>
+  <g fill="none" stroke="#11110f" stroke-width="2.7" stroke-linecap="round" stroke-dasharray="1 8"><path d="M74 97 H164 V523 H338 V607 H74Z M396 97 H655 V181 H486 V309 H632 V393 H486 V607 H396Z M698 97 H827 C926 97 972 158 972 253 C972 348 922 408 823 408 H788 V607 H698Z"/></g>
+  <g fill="none" stroke="#3157ff" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"><path d="M74 607 H338 M396 97 H655 M698 97 H827"/></g>
+  <g fill="#3157ff"><circle cx="338" cy="607" r="5"/><circle cx="655" cy="97" r="5"/><circle cx="827" cy="97" r="5"/></g>
+</svg>

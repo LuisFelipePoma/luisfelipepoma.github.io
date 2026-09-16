@@ -13,6 +13,11 @@ for (const page of pages) {
     assert.ok(html.includes(page.cv));
     assert.ok(html.includes('lfpasep9@gmail.com'));
     assert.equal((html.match(/<article /g) || []).length, 4);
+    assert.equal((html.match(/\bdata-scene=/g) || []).length, 7);
+    assert.equal((html.match(/\bdata-cloud-zone/g) || []).length, 7,
+      'hero, four projects, about and contact need visible cloud space');
+    assert.equal((html.match(/\bdata-matter-fallback/g) || []).length, 7,
+      'every scene needs a static SVG fallback');
     for (const id of ['inicio','trabajo','monitoreo','documentos','uribe','catmap','sobre-mi','contacto']) assert.ok(html.includes('id="' + id + '"'), id);
     for (const lang of ['es','en','x-default']) assert.ok(html.includes('hreflang="' + lang + '"'));
     const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]));

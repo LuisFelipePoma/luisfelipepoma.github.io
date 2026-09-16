@@ -1,0 +1,12 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="140 55 840 600" role="img" aria-label="Materia digital que se expande hacia el exterior">
+  <defs><pattern id="grain" width="17" height="17" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)"><circle cx="3" cy="3" r="1.6" fill="#11110f"/><circle cx="12" cy="11" r="1.1" fill="#11110f"/></pattern></defs>
+  <path d="M122 482 C268 394 371 323 506 299 C619 277 724 315 958 134 C796 358 661 386 557 406 C412 437 264 526 122 562Z" fill="url(#grain)"/>
+  <path d="M89 349 C266 319 410 355 553 279 C708 197 786 123 968 75 C757 260 660 331 521 364 C376 398 248 383 89 416Z" fill="url(#grain)" opacity=".58"/>
+  <path d="M225 570 C367 514 488 516 619 461 C749 406 844 362 972 316 C837 472 739 519 601 558 C461 597 346 602 225 633Z" fill="url(#grain)" opacity=".54"/>
+  <g fill="none" stroke="#11110f" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="1 9">
+    <path d="M84 380 C291 309 385 391 558 282 C707 189 802 121 973 77"/><path d="M111 515 C296 441 398 333 548 352 C698 372 827 213 975 131"/><path d="M187 601 C389 494 474 564 627 478 C756 405 871 361 983 317"/>
+    <path d="M303 158 C374 281 426 345 548 352 M620 86 C594 198 592 280 558 352"/>
+  </g>
+  <g fill="none" stroke="#3157ff" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="1 8"><path d="M520 362 C683 285 782 132 973 77"/><path d="M548 352 C703 384 832 224 975 131"/></g>
+  <g fill="#3157ff"><circle cx="548" cy="352" r="8"/><circle cx="973" cy="77" r="5"/><circle cx="975" cy="131" r="5"/><circle cx="983" cy="317" r="4"/></g>
+</svg>

@@ -1,0 +1,136 @@
+{
+  "format": "APC1",
+  "version": 1,
+  "duration": 6,
+  "samples": [
+    0.0,
+    0.125,
+    0.25,
+    0.375,
+    0.5,
+    0.625,
+    0.75,
+    0.875,
+    1.0,
+    1.125,
+    1.25,
+    1.375,
+    1.5,
+    1.625,
+    1.75,
+    1.875,
+    2.0,
+    2.125,
+    2.25,
+    2.375,
+    2.5,
+    2.625,
+    2.75,
+    2.875,
+    3.0,
+    3.125,
+    3.25,
+    3.375,
+    3.5,
+    3.625,
+    3.75,
+    3.875,
+    4.0,
+    4.125,
+    4.25,
+    4.375,
+    4.5,
+    4.625,
+    4.75,
+    4.875,
+    5.0,
+    5.125,
+    5.25,
+    5.375,
+    5.5,
+    5.625,
+    5.75,
+    5.875,
+    6.0
+  ],
+  "bound": 2.0,
+  "scenes": [
+    {
+      "id": "terrain",
+      "time": 0,
+      "frame": 1,
+      "dark": false,
+      "reference": "src/assets/terrain.png",
+      "referenceSha256": "1322629480638be7a0f62d6685e9bf1ff5fa0c5b0bec0dda8100a75fd18c7561",
+      "aspect": 3.029032258064516
+    },
+    {
+      "id": "monitoreo",
+      "time": 1,
+      "frame": 101,
+      "dark": false,
+      "reference": "art/concepts/monitoring-pointcloud-v3.png",
+      "referenceSha256": "1ea07da1a88cbb70b321117af80149f255abb95fac7eac71aaf7a193ad92fd22",
+      "aspect": 1.6296296296296295
+    },
+    {
+      "id": "documentos",
+      "time": 2,
+      "frame": 201,
+      "dark": true,
+      "reference": "art/concepts/documents-wave-pointcloud-v1.png",
+      "referenceSha256": "5bba7854b2bbae5f2ca65fc5e07a39642abe4c19720b800c624f6181677e6e34",
+      "aspect": 1.9375
+    },
+    {
+      "id": "uribe",
+      "time": 3,
+      "frame": 301,
+      "dark": false,
+      "reference": "art/concepts/uribe-ascending-pointcloud-v1.png",
+      "referenceSha256": "692712ccadaa127976f8fd54636580f21937aa76fc715be8f3e9ec7549f19b4d",
+      "aspect": 1.6238532110091743
+    },
+    {
+      "id": "catmap",
+      "time": 4,
+      "frame": 401,
+      "dark": false,
+      "reference": "art/concepts/catmap-mountain-pointcloud-v2.png",
+      "referenceSha256": "f6bd1a3a37b6fb304eee1021d51f283de3fdbd49cff8d5c402e8e5446e67319a",
+      "aspect": 1.8861256544502618
+    },
+    {
+      "id": "about",
+      "time": 5,
+      "frame": 501,
+      "dark": false,
+      "reference": "art/concepts/about-knot-pointcloud-v1.png",
+      "referenceSha256": "2307748e8f03788767a480aa3312b94362555131ceb17c1f7a4841ef1c633da6",
+      "aspect": 1.1526548672566372
+    },
+    {
+      "id": "contact",
+      "time": 6,
+      "frame": 601,
+      "dark": false,
+      "reference": "art/concepts/contact-joint-pointcloud-v1.png",
+      "referenceSha256": "63858785a26d86f8c08497bf954173a3cfbbce01b46681b28126aef24e4ed9f4",
+      "aspect": 1.7448453608247423
+    }
+  ],
+  "variants": {
+    "desktop": {
+      "src": "/matter-approved/desktop-90b26303925b.bin",
+      "count": 28000,
+      "bytes": 8232016
+    },
+    "mobile": {
+      "src": "/matter-approved/mobile-6669c620b934.bin",
+      "count": 10000,
+      "bytes": 2940016
+    }
+  },
+  "source": "art/approved-matter.blend",
+  "method": "Reference-derived 2.5D point sculptures; no inferred rear geometry."
+}

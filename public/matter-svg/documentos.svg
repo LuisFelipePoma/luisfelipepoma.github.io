@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-label="Documento escaneado y extracción en puntos">
+  <defs><pattern id="grain" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-3)"><circle cx="3" cy="3" r="1.5" fill="#f2efe7"/><circle cx="10" cy="9" r="1" fill="#f2efe7"/></pattern></defs>
+  <path d="M196 58 L706 94 L842 202 L814 642 L180 608Z" fill="url(#grain)"/>
+  <path d="M706 94 L689 217 L842 202Z" fill="none" stroke="#91a4ff" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
+  <path d="M195 58 L180 608 L814 642 L842 202 M195 58 L706 94 L842 202" fill="none" stroke="#f2efe7" stroke-width="2.5" stroke-dasharray="1 8" stroke-linecap="round"/>
+  <g fill="none" stroke="#f2efe7" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8">
+    <path d="M249 191 L555 212 M247 233 L662 261 M247 273 L596 303 M241 353 L709 393 M239 394 L644 433 M235 437 L696 475 M231 514 L579 540"/>
+  </g>
+  <path d="M236 316 L705 352" fill="none" stroke="#91a4ff" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 8"/>
+  <g fill="#91a4ff"><circle cx="236" cy="316" r="5"/><circle cx="706" cy="352" r="5"/><circle cx="689" cy="217" r="5"/></g>
+  <path d="M102 319 C148 308 167 307 218 316 M778 355 C844 353 887 346 940 325" fill="none" stroke="#91a4ff" stroke-width="2" stroke-dasharray="1 8" stroke-linecap="round"/>
+</svg>

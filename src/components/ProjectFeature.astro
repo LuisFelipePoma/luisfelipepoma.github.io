@@ -3,6 +3,7 @@ import {Image} from 'astro:assets';
 import {copy, type CaseStudy, type Locale} from '../data/portfolio';
 import Action from './Action.astro';
 import FlowDiagram from './FlowDiagram.astro';
+import MatterFallback from './MatterFallback.astro';
 import {container, metadata, heading} from '../styles/patterns';
 interface Props {project: CaseStudy; index: number; locale: Locale}
 const {project, index, locale} = Astro.props;
@@ -20,7 +21,7 @@ const client = project.client === 'Open source' ? t.openSource : project.client;
       <p class="project-summary mt-2 text-lg leading-normal text-pretty md:mt-3 lg:text-xl lg:leading-[1.45]">{project.summary[locale]}</p>
       {project.links.length > 0 && <div class="project-links mt-4 flex flex-wrap gap-6 md:mt-6 md:gap-8">{project.links.map(link => <Action href={link.url} external label={link.label[locale] + ' — ' + project.title[locale] + ' (' + t.newTab + ')'}>{link.label[locale]}</Action>)}</div>}
     </div>
-    <div class="project-matter-space h-44 w-full md:h-[clamp(160px,28vh,320px)]" data-cloud-zone aria-hidden="true"></div>
+    <div class="project-matter-space h-48 w-full md:h-[clamp(220px,34vh,390px)]" data-cloud-zone aria-hidden="true"><MatterFallback scene={project.id} /></div>
     </div>
     <figure class="project-figure mt-2 w-full min-w-0 self-stretch md:col-span-5 md:mt-0 md:self-center lg:col-span-4" data-cloud-quiet>
       <div class:list={['project-visual relative isolate w-full [&_img]:h-auto [&_img]:w-full', project.media.type === 'screenshot' && 'screenshot-visual border border-ink/30 bg-paper p-2 before:absolute before:-top-px before:-left-px before:size-1.5 before:bg-electric after:absolute after:-right-px after:-bottom-px after:size-1.5 after:bg-electric']}>

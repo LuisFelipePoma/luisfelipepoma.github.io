@@ -1,0 +1,182 @@
+{
+  "format": "PMAT/1",
+  "pointStride": 9,
+  "bounds": [
+    [
+      -10.0,
+      10.0
+    ],
+    [
+      -4.0,
+      4.0
+    ],
+    [
+      -5.0,
+      5.0
+    ]
+  ],
+  "duration": 7.0,
+  "scenes": [
+    {
+      "id": "terrain",
+      "time": 1,
+      "theme": "light",
+      "frame": 2
+    },
+    {
+      "id": "monitoring",
+      "time": 2,
+      "theme": "light",
+      "frame": 4
+    },
+    {
+      "id": "documents",
+      "time": 3,
+      "theme": "dark",
+      "frame": 6
+    },
+    {
+      "id": "uribe",
+      "time": 4,
+      "theme": "light",
+      "frame": 8
+    },
+    {
+      "id": "catmap",
+      "time": 5,
+      "theme": "light",
+      "frame": 10
+    },
+    {
+      "id": "about",
+      "time": 6,
+      "theme": "light",
+      "frame": 12
+    },
+    {
+      "id": "contact",
+      "time": 7,
+      "theme": "light",
+      "frame": 14
+    }
+  ],
+  "frames": [
+    {
+      "id": "scatter",
+      "scene": "scatter",
+      "kind": "scene",
+      "time": 0.0,
+      "theme": "light"
+    },
+    {
+      "id": "to-terrain",
+      "scene": "terrain",
+      "kind": "bridge",
+      "time": 0.5,
+      "theme": "light"
+    },
+    {
+      "id": "terrain",
+      "scene": "terrain",
+      "kind": "scene",
+      "time": 1.0,
+      "theme": "light"
+    },
+    {
+      "id": "to-monitoring",
+      "scene": "monitoring",
+      "kind": "bridge",
+      "time": 1.5,
+      "theme": "light"
+    },
+    {
+      "id": "monitoring",
+      "scene": "monitoring",
+      "kind": "scene",
+      "time": 2.0,
+      "theme": "light"
+    },
+    {
+      "id": "to-documents",
+      "scene": "documents",
+      "kind": "bridge",
+      "time": 2.5,
+      "theme": "dark"
+    },
+    {
+      "id": "documents",
+      "scene": "documents",
+      "kind": "scene",
+      "time": 3.0,
+      "theme": "dark"
+    },
+    {
+      "id": "to-uribe",
+      "scene": "uribe",
+      "kind": "bridge",
+      "time": 3.5,
+      "theme": "light"
+    },
+    {
+      "id": "uribe",
+      "scene": "uribe",
+      "kind": "scene",
+      "time": 4.0,
+      "theme": "light"
+    },
+    {
+      "id": "to-catmap",
+      "scene": "catmap",
+      "kind": "bridge",
+      "time": 4.5,
+      "theme": "light"
+    },
+    {
+      "id": "catmap",
+      "scene": "catmap",
+      "kind": "scene",
+      "time": 5.0,
+      "theme": "light"
+    },
+    {
+      "id": "to-about",
+      "scene": "about",
+      "kind": "bridge",
+      "time": 5.5,
+      "theme": "light"
+    },
+    {
+      "id": "about",
+      "scene": "about",
+      "kind": "scene",
+      "time": 6.0,
+      "theme": "light"
+    },
+    {
+      "id": "to-contact",
+      "scene": "contact",
+      "kind": "bridge",
+      "time": 6.5,
+      "theme": "light"
+    },
+    {
+      "id": "contact",
+      "scene": "contact",
+      "kind": "scene",
+      "time": 7.0,
+      "theme": "light"
+    }
+  ],
+  "variants": {
+    "desktop": {
+      "src": "/matter-lab/portfolio-matter-desktop.bin",
+      "pointCount": 44369,
+      "bytes": 5989831
+    },
+    "mobile": {
+      "src": "/matter-lab/portfolio-matter-mobile.bin",
+      "pointCount": 24000,
+      "bytes": 3240016
+    }
+  }
+}

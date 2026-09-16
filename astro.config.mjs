@@ -6,7 +6,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
 	site: 'https://luisfelipepoma.github.io',
 	output: 'static',
-	vite: { plugins: [tailwindcss()] },
+	vite: {
+		plugins: [tailwindcss()],
+		optimizeDeps: { include: ['gsap', 'gsap/ScrollTrigger', 'three'] },
+	},
 	devToolbar: { enabled: false },
 	trailingSlash: 'always',
 	i18n: {

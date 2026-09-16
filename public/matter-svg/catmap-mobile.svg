@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 100 820 560" role="img" aria-label="Estratos geolÃ³gicos y falla en puntos">
+  <defs><pattern id="grain" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><circle cx="3" cy="3" r="1.5" fill="#11110f"/><circle cx="11" cy="10" r="1" fill="#11110f"/></pattern></defs>
+  <path d="M57 262 C196 191 286 195 414 248 C546 300 629 152 750 194 C843 224 902 189 966 147 L966 655 L57 655Z" fill="url(#grain)"/>
+  <g fill="none" stroke="#11110f" stroke-linecap="round" stroke-dasharray="1 8" stroke-width="3">
+    <path d="M50 269 C189 202 288 207 413 258 C543 311 628 166 750 206 C845 238 902 200 971 156"/>
+    <path d="M51 336 C202 268 299 285 414 331 C543 382 629 240 750 279 C848 309 912 272 971 226"/>
+    <path d="M52 410 C188 343 295 352 419 407 C547 463 637 316 758 357 C845 387 921 355 972 303"/>
+    <path d="M54 490 C196 412 303 424 428 485 C552 546 647 395 771 434 C855 462 914 442 973 379"/>
+    <path d="M55 571 C198 494 303 513 435 571 C557 623 650 473 778 511 C865 537 927 515 974 461"/>
+  </g>
+  <path d="M607 119 L463 668" fill="none" stroke="#3157ff" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/>
+  <path d="M610 118 L632 115 M462 665 L439 670" fill="none" stroke="#3157ff" stroke-width="3"/>
+  <g fill="#3157ff"><circle cx="607" cy="119" r="5"/><circle cx="463" cy="668" r="5"/></g>
+</svg>

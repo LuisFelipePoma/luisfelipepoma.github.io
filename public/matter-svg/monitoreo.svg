@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-label="Red industrial de sensores en puntos">
+  <defs><pattern id="grain" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(7)"><circle cx="3" cy="3" r="1.6" fill="#11110f"/><circle cx="11" cy="9" r="1" fill="#11110f"/></pattern></defs>
+  <path d="M100 487 L236 354 L401 408 L538 197 L720 261 L893 127 L931 185 L729 338 L546 271 L415 489 L232 432 L114 558Z" fill="url(#grain)"/>
+  <path d="M75 611 L225 501 L397 553 L545 350 L725 417 L944 243 L944 383 L745 542 L548 477 L413 660 L222 579 L94 673Z" fill="url(#grain)" opacity=".64"/>
+  <g fill="none" stroke="#11110f" stroke-linecap="round" stroke-dasharray="1 8" stroke-width="2.6">
+    <path d="M88 489 L231 384 L405 450 L544 235 L726 301 L912 159"/><path d="M90 618 L224 544 L410 592 L545 388 L735 468 L936 301"/>
+    <path d="M232 385 L223 545 M405 450 L410 592 M544 235 L545 388 M726 301 L735 468 M912 159 L936 301"/>
+    <path d="M370 444 C415 285 558 147 759 180 M400 578 C575 641 773 561 876 357"/>
+  </g>
+  <g fill="none" stroke="#3157ff" stroke-linecap="round" stroke-dasharray="1 9" stroke-width="3"><path d="M544 235 C582 207 659 203 726 301"/><path d="M232 385 C313 267 420 219 544 235"/></g>
+  <g fill="#3157ff"><circle cx="232" cy="385" r="7"/><circle cx="405" cy="450" r="5"/><circle cx="544" cy="235" r="8"/><circle cx="726" cy="301" r="6"/><circle cx="912" cy="159" r="6"/></g>
+  <g fill="#11110f"><circle cx="224" cy="545" r="5"/><circle cx="410" cy="592" r="5"/><circle cx="545" cy="388" r="5"/><circle cx="735" cy="468" r="5"/></g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-label="Planos de interfaz web en puntos">
+  <defs><pattern id="grain" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(4)"><circle cx="3" cy="3" r="1.5" fill="#11110f"/><circle cx="11" cy="10" r="1.1" fill="#11110f"/></pattern></defs>
+  <path d="M75 230 L486 135 L550 490 L139 590Z" fill="url(#grain)" opacity=".52"/>
+  <path d="M254 154 L778 101 L795 523 L270 585Z" fill="url(#grain)"/>
+  <path d="M531 231 L914 197 L930 585 L548 622Z" fill="url(#grain)" opacity=".53"/>
+  <path d="M338 251 L717 214 L725 427 L347 471Z" fill="#f2efe7"/>
+  <g fill="none" stroke="#11110f" stroke-linecap="round" stroke-dasharray="1 8" stroke-width="2.4">
+    <path d="M75 230 L486 135 L550 490 L139 590Z M254 154 L778 101 L795 523 L270 585Z M531 231 L914 197 L930 585 L548 622Z"/>
+    <path d="M267 207 L780 153 M86 278 L493 190 M541 279 L916 243 M145 553 L321 509 M612 565 L923 533"/>
+  </g>
+  <g fill="none" stroke="#3157ff" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"><path d="M254 154 L778 101 M778 101 L795 523"/></g>
+  <g fill="#3157ff"><circle cx="254" cy="154" r="5"/><circle cx="778" cy="101" r="5"/><circle cx="795" cy="523" r="5"/></g>
+</svg>

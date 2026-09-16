@@ -1,0 +1,72 @@
+---
+import '../../styles/tailwind.css';
+import {Image} from 'astro:assets';
+import terrain from '../../assets/terrain.png';
+import monitoring from '../../../art/concepts/monitoring-pointcloud-v3.png';
+import documents from '../../../art/concepts/documents-wave-pointcloud-v1.png';
+import uribe from '../../../art/concepts/uribe-ascending-pointcloud-v1.png';
+import catmap from '../../../art/concepts/catmap-mountain-pointcloud-v2.png';
+import about from '../../../art/concepts/about-knot-pointcloud-v1.png';
+import contact from '../../../art/concepts/contact-joint-pointcloud-v1.png';
+import MatterFallback from '../../components/MatterFallback.astro';
+const scenes=[
+  {id:'terrain',title:'Terreno',image:terrain},
+  {id:'monitoreo',title:'Monitoreo industrial',image:monitoring},
+  {id:'documentos',title:'Extracción documental',image:documents},
+  {id:'uribe',title:'Uribe’s School',image:uribe},
+  {id:'catmap',title:'catmap',image:catmap},
+  {id:'about',title:'Sobre mí',image:about},
+  {id:'contact',title:'Contacto',image:contact},
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" /><title>Escenas aprobadas · Matter lab</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="m-0 bg-paper font-sans text-ink antialiased [&_[hidden]]:hidden">
+    <header class="relative z-2 mx-auto flex max-w-[1440px] justify-between border-b border-rule px-6 py-6" data-cloud-quiet>
+      <a href="/" class="underline underline-offset-4 hover:text-electric">← Portafolio</a>
+      <a href="#comparacion" class="underline underline-offset-4 hover:text-electric">Comparar referencias</a>
+    </header>
+    <main>
+      {scenes.map((scene,index)=><section data-scene={scene.id} data-cloud-dark={scene.id==='documentos'?'true':undefined} class:list={['flex min-h-screen flex-col justify-center border-b border-rule px-6 py-12',scene.id==='documentos'?'bg-ink text-paper':'']}>
+        <div class="relative z-2 mx-auto w-full max-w-[1100px]">
+          <div data-cloud-quiet class="flex flex-wrap items-end justify-between gap-4">
+            <h1 class="text-4xl font-semibold tracking-[-.04em] md:text-6xl">{scene.title}</h1>
+            <span class="font-mono text-xs">{index+1} / 7 · Desplázate para transformar</span>
+          </div>
+          <div data-cloud-zone class="mt-8 h-[55vh] w-full" aria-hidden="true"><MatterFallback scene={scene.id}/></div>
+        </div>
+      </section>)}
+      <section id="comparacion" class="relative z-2 bg-paper px-6 py-16" data-cloud-quiet>
+        <div class="mx-auto max-w-[1440px]">
+          <h2 class="text-4xl font-semibold tracking-[-.04em] md:text-6xl">Referencia y render de Blender</h2>
+          <p class="mt-6 max-w-[70ch] text-lg">Las siete vistas aprobadas se reconstruyen como esculturas de puntos con profundidad controlada. Cada transición conserva el índice de las partículas. Las caras ocultas de los objetos no están reconstruidas.</p>
+          <div class="mt-12 divide-y divide-rule">
+            {scenes.map(scene=><article class="py-10">
+              <h3 class="mb-4 text-2xl font-semibold">{scene.title}</h3>
+              <div class:list={['grid gap-4 md:grid-cols-2',scene.id==='documentos'?'bg-ink text-paper':'']}>
+                <figure><Image src={scene.image} width={720} format="webp" alt={'Referencia aprobada: '+scene.title} loading="lazy" class="aspect-[3/2] w-full object-contain"/><figcaption class="p-3 font-mono text-xs">Referencia aprobada</figcaption></figure>
+                <figure><img src={'/matter-approved/'+scene.id+'.png'} width="1100" height="800" alt={'Render de Blender: '+scene.title} loading="lazy" class="aspect-[3/2] w-full object-contain"/><figcaption class="p-3 font-mono text-xs">Blender · pose final</figcaption></figure>
+              </div>
+            </article>)}
+          </div>
+          <h2 class="mt-12 text-3xl font-semibold">Transiciones: 0 / 25 / 50 / 75 / 100 %</h2>
+          <div class="mt-6 overflow-x-auto"><img src="/matter-approved/transitions.png" width="1800" height="1500" alt="Seis transiciones entre las siete escenas, cada una en cinco pasos" loading="lazy" class="min-w-[800px] w-full" /></div>
+        </div>
+      </section>
+    </main>
+    <footer class="relative z-2 border-t border-rule bg-paper px-6 py-8" data-cloud-quiet>
+      <button type="button" data-motion-toggle data-system-label="Preferencia del sistema" hidden class="cursor-pointer underline underline-offset-4">Reducir movimiento</button>
+      <p class="mt-4 font-mono text-xs">Fuente: art/approved-matter.blend · 28 000 / 10 000 puntos · 49 muestras</p>
+    </footer>
+    <canvas data-matter-canvas aria-hidden="true" class="pointer-events-none fixed inset-0 z-1 hidden h-full w-full"></canvas>
+    <script>
+      import {initializeApprovedMatter} from '../../scripts/approved-player';
+      initializeApprovedMatter();
+    </script>
+  </body>
+</html>

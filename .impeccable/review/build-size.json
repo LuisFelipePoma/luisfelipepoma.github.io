@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T21:26:29.427Z",
+  "generatedAt": "2026-09-15T20:17:44.059Z",
   "files": [
     {
       "name": "catmap.Cd-RnR-N_15a4jh.webp",
@@ -18,30 +18,14 @@
       "bytes": 220
     },
     {
-      "name": "Portfolio.P0E_iqlR.css",
-      "bytes": 26511,
-      "gzipBytes": 6415
+      "name": "Portfolio.BQWMcB3u.css",
+      "bytes": 26451,
+      "gzipBytes": 6373
     },
     {
-      "name": "PortfolioLayout.astro_astro_type_script_index_0_lang.BI2sx8Ne.js",
-      "bytes": 119588,
-      "gzipBytes": 46828
-    },
-    {
-      "name": "terrain.DVLVfcW4_Z2qfAGm.webp",
-      "bytes": 41702
-    },
-    {
-      "name": "terrain.DVLVfcW4_ZAJMSq.webp",
-      "bytes": 141066
-    },
-    {
-      "name": "terrain.DVLVfcW4_ZqAUMd.webp",
-      "bytes": 211870
-    },
-    {
-      "name": "terrain.DVLVfcW4_ZqEYXT.webp",
-      "bytes": 211618
+      "name": "PortfolioLayout.astro_astro_type_script_index_0_lang.Dy4w8l9p.js",
+      "bytes": 120969,
+      "gzipBytes": 47136
     },
     {
       "name": "uribe-school.DMwhOQOl_k8NsI.webp",
@@ -56,6 +40,6 @@
       "bytes": 35286
     }
   ],
-  "javascriptBytes": 119588,
-  "javascriptGzipBytes": 46828
+  "javascriptBytes": 120969,
+  "javascriptGzipBytes": 47136
 }

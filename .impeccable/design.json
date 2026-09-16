@@ -219,6 +219,12 @@
         "desktopPosition": "below copy on the left; opposite the right visual",
         "mobilePosition": "between copy and image"
       },
+      "aboutContactCloudSpace": {
+        "mobileHeight": "160px",
+        "desktopHeight": "224px",
+        "aboutDesktopWidth": "one third, right aligned",
+        "contactDesktopWidth": "one half, right aligned"
+      },
       "headerHeight": {
         "mobile": "128px",
         "desktop": "74px"
@@ -256,26 +262,27 @@
         "contact"
       ],
       "canvas": "one fixed decorative viewport background",
+      "authoring": "seven editable SVGs with seven mobile variants in public/matter-svg; sharp creates point data at build time",
+      "generatedDataBytes": {"desktop": 100808, "mobile": 35708},
       "points": {
-        "desktop": 1800,
-        "mobile": 600
+        "desktop": 2400,
+        "mobile": 850,
+        "fallbackTiers": ["1800/600", "1200/400"]
       },
-      "terrainDistribution": {
-        "contours": 12,
-        "foregroundFraction": 0.2,
-        "sampling": "irregular stippling along staggered contours",
-        "uniformMesh": false
-      },
+      "sampling": "visible SVG pixels chosen deterministically, sorted spatially and interleaved for progressive budgets",
+      "transition": "20% of indexed points travel; the rest dissolve and reconstruct across two recognisable silhouettes",
       "maximumDpr": 1.5,
       "drawBehavior": "On demand after scroll, fine-pointer movement, resize or page-state changes; canvas persists while idle.",
       "drawP95Window": 120,
-      "drawBudgetDecision": "Keep 1800/600 until browser p95 exceeds 10ms; visually compare 1200/400 before adopting.",
+      "drawBudgetDecision": "Start 2400/850; after 60 scroll draws and p95 above 10ms, downgrade on idle to 1800/600, then 1200/400 on a fresh over-budget sample.",
+      "drawBudgetLevelsPersist": "separately for desktop and mobile until reload",
+      "staticBuildJavaScriptBytes": {"raw": 120969, "gzip": 47136},
       "quietRectMargin": "16px",
       "darkPointToken": "paper",
       "darkAccentToken": "dark-electric",
       "reducedPreference": "manual OR operating system",
       "hiddenPageBehavior": "pending draw cancelled on visibilitychange and pagehide",
-      "fallback": "generated terrain raster only without JavaScript or Canvas",
+      "fallback": "all seven editable SVGs without JavaScript or Canvas; SVGs remain the mobile silhouette base and serve reduced motion",
       "imageBehavior": "complete static screenshots and diagrams",
       "quietRegionBehavior": "Exclude complete particle footprints over marked copy, diagrams and image frames.",
       "projectProjection": {
@@ -285,6 +292,7 @@
           "uribe",
           "catmap"
         ],
+        "additionalReservedScenes": ["terrain", "about", "contact"],
         "coordinateSystem": "local 0..1 projected into data-cloud-zone",
         "interpolation": "pixel positions of source and target planes",
         "verticalClampMargin": "16px",
