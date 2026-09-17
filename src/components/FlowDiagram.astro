@@ -1,38 +1,106 @@
 ---
-import {type Locale} from '../data/portfolio';
-interface Props {variant: 'monitoring' | 'extraction'; locale: Locale; alt: string}
-const {variant, locale, alt} = Astro.props;
+import { type Locale } from '../data/portfolio';
+interface Props { variant: 'monitoring' | 'extraction'; locale: Locale; alt: string }
+const { variant, locale, alt } = Astro.props;
 const dark = variant === 'extraction';
+const es = locale === 'es';
 const ink = dark ? '#f2efe7' : '#11110f';
 const blue = dark ? '#91a4ff' : '#3157ff';
 const muted = dark ? '#b9b6af' : '#66635c';
-const es = locale === 'es';
+const steps = dark
+  ? [es ? 'Documento' : 'Document', es ? 'Extracción con IA' : 'AI extraction', es ? 'Datos estructurados' : 'Structured data']
+  : [es ? 'Red de sensores' : 'Sensor network', es ? 'Servicios conectados' : 'Connected services', es ? 'Web y móvil' : 'Web and mobile'];
 ---
-<svg class="flow-diagram h-auto w-full" viewBox={variant === 'monitoring' ? '0 65 720 230' : '0 0 720 340'} xmlns="http://www.w3.org/2000/svg" role="img" aria-label={alt} fill="none">
-  <title>{alt}</title>
-  {variant === 'monitoring' ? <>
-    <g stroke={ink} stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="60" y="96" width="68" height="100" rx="3" /><path d="M84 96V73h12v23m-20 72h36m-30 13h24" />
-      <path d="M139 112q16 16 0 32m10-42q25 25 0 52" />
-      <path d="M178 153h102m-10-9 10 9-10 9" />
-      <rect x="304" y="102" width="105" height="28" rx="2" /><rect x="304" y="144" width="105" height="28" rx="2" /><rect x="304" y="186" width="105" height="28" rx="2" />
-      <circle cx="318" cy="116" r="3" /><circle cx="318" cy="158" r="3" /><circle cx="318" cy="200" r="3" /><path d="M334 116h53m-53 42h53m-53 42h53" />
-      <path d="M432 153h102m-10-9 10 9-10 9" />
-      <rect x="558" y="94" width="116" height="103" rx="2" /><path d="M595 211h43m-22-14v14" />
-    </g>
-    <path d="M578 174v-26m18 26v-43m18 43v-33m18 33v-60m18 60v-48" stroke={blue} stroke-width="3" />
-    <g fill={ink} font-family="monospace" font-size="17" text-anchor="middle"><text x="96" y="250">{es ? 'Sensores' : 'Sensors'}</text><text x="356" y="250">{es ? 'Servicios' : 'Services'}</text><text x="616" y="250">{es ? 'Visualización' : 'Visualization'}</text></g>
-    <g fill={muted} font-family="monospace" font-size="13" text-anchor="middle"><text x="96" y="278">IoT</text><text x="356" y="278">Python / FastAPI</text><text x="616" y="278">{es ? 'Web + móvil' : 'Web + mobile'}</text></g>
-  </> : <>
-    <g stroke={ink} stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M62 83h70l24 24v112H62zm70 0v24h24" /><path d="M82 128h52m-52 16h45m-45 16h52m-52 16h30" />
-      <path d="M180 153h102m-10-9 10 9-10 9" />
-      <rect x="308" y="105" width="112" height="96" rx="2" /><path d="M299 127h9m-9 24h9m-9 24h9m112-48h9m-9 24h9m-9 24h9M333 96v9m24-9v9m24-9v9m-48 96v9m24-9v9m24-9v9" />
-      <path d="M446 153h91m-10-9 10 9-10 9" /><path d="M580 113h-14v83h14m68-83h14v83h-14" />
-    </g>
-    <g fill={blue} font-family="monospace" font-size="28" text-anchor="middle"><text x="364" y="164">LLM</text></g>
-    <g stroke={blue} stroke-width="3"><path d="M589 125h39m-39 21h49m-49 21h27m-27 21h43" /></g>
-    <g fill={ink} font-family="monospace" font-size="17" text-anchor="middle"><text x="110" y="250">{es ? 'Documento' : 'Document'}</text><text x="364" y="250">{es ? 'Extracción' : 'Extraction'}</text><text x="614" y="250">{es ? 'Datos' : 'Data'}</text></g>
-    <g fill={muted} font-family="monospace" font-size="13" text-anchor="middle"><text x="110" y="278">{es ? 'Escaneado' : 'Scanned'}</text><text x="364" y="278">{es ? 'IA aplicada' : 'Applied AI'}</text><text x="614" y="278">{es ? 'Estructurados' : 'Structured'}</text></g>
-  </>}
-</svg>
+
+<div
+  class:list={['flow-diagram overflow-hidden border', dark ? 'border-paper/20 bg-paper/[.025]' : 'border-ink/20 bg-white/25']}
+  role="img"
+  aria-label={alt}
+>
+  <div class:list={['flex flex-wrap items-center justify-between gap-3 border-b px-4 py-4 sm:px-6', dark ? 'border-paper/15' : 'border-ink/15']}>
+    <span class="flex items-center gap-2.5 text-base font-medium tracking-tight sm:text-lg">
+      <span class:list={['size-2 shrink-0', dark ? 'bg-dark-electric' : 'bg-electric']}></span>
+      {dark ? (es ? 'Del documento al dato' : 'From document to data') : (es ? 'Monitoreo conectado' : 'Connected monitoring')}
+    </span>
+    <span class:list={['font-mono text-[10px] uppercase tracking-wider', dark ? 'text-dark-muted' : 'text-muted']}>
+      {es ? 'Esquema' : 'Schematic'} / {dark ? '02' : '01'}
+    </span>
+  </div>
+
+  <svg class="block h-auto w-full" viewBox="0 0 640 350" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true" focusable="false">
+    {variant === 'monitoring' ? <>
+      {/* A sensor field, service junction and time series form one continuous drawing. */}
+      <g stroke={ink} stroke-opacity=".13" stroke-width="1.2">
+        <path d="M16 232C52 239 61 193 98 188S135 198 154 167 173 105 217 92 246 62 244 35" />
+        <path d="M16 253C66 261 73 216 103 211S149 217 173 183 193 127 231 116 262 76 263 43" />
+        <path d="M16 274C70 286 89 241 118 236S162 240 192 201 209 151 246 139 279 94 282 57" />
+        <path d="M21 212C48 217 49 170 87 165S118 175 134 144 155 83 196 70 222 42 223 25" />
+        <path d="M27 190C41 192 42 148 73 141S101 151 113 120 138 61 174 49 198 28 202 17" />
+        <path d="M23 297C89 310 105 269 139 259S182 264 211 224 232 174 266 165" />
+      </g>
+      <g stroke={blue} stroke-width="1.5" stroke-dasharray="3 6" stroke-opacity=".6">
+        <path d="M72 218 145 145 212 83" />
+        <path d="M72 218H243V174H286M145 145H243V174M212 83H243V174" />
+      </g>
+      {[{x:72,y:218,id:'S.01'},{x:145,y:145,id:'S.02'},{x:212,y:83,id:'S.03'}].map(point => <g>
+        <circle cx={point.x} cy={point.y} r="17" fill={blue} fill-opacity=".07" stroke={blue} stroke-opacity=".2" />
+        <circle cx={point.x} cy={point.y} r="5" fill={blue} />
+        <text x={point.x-21} y={point.y+35} fill={ink} font-family="Commit Mono, monospace" font-size="15">{point.id}</text>
+      </g>)}
+      <rect x="285" y="134" width="76" height="80" fill="#f2efe7" stroke={ink} stroke-opacity=".6" />
+      <path d="M300 157H346M300 166H328" stroke={ink} stroke-opacity=".3" />
+      <text x="323" y="196" fill={ink} text-anchor="middle" font-family="Commit Mono, monospace" font-size="21">API</text>
+      <g stroke={blue} stroke-width="2">
+        <path d="M361 174H404m-7-5 7 5-7 5" />
+        <path d="M279 163h6m-6 22h6m76-22h6m-6 22h6" />
+      </g>
+      <text x="416" y="65" fill={ink} font-family="Archivo, sans-serif" font-size="19" font-weight="600">{es ? 'Series temporales' : 'Time series'}</text>
+      <g stroke={ink} stroke-opacity=".12">
+        <path d="M416 96H614M416 138H614M416 180H614M416 222H614M416 264H614" />
+        <path d="M416 96V264M466 96V264M516 96V264M566 96V264M614 96V264" stroke-dasharray="2 5" />
+      </g>
+      <path d="M416 230 434 224 451 234 468 201 484 210 502 169 519 181 537 145 554 158 572 122 590 135 610 105V264H416Z" fill={blue} fill-opacity=".06" />
+      <path d="M416 230 434 224 451 234 468 201 484 210 502 169 519 181 537 145 554 158 572 122 590 135 610 105" stroke={blue} stroke-width="2.5" stroke-linejoin="round" />
+      <path d="M416 249 438 235 461 242 483 220 504 232 526 207 546 217 568 190 589 199 610 175" stroke={ink} stroke-width="1.5" stroke-opacity=".45" />
+      <circle cx="610" cy="105" r="4" fill={blue} />
+      <text x="416" y="293" fill={muted} font-family="Commit Mono, monospace" font-size="14">{es ? 'Señal → información' : 'Signal → information'}</text>
+    </> : <>
+      {/* Highlighted source fields connect to a structured output, without invented metrics. */}
+      <path d="M44 33H204L227 56V282" stroke={ink} stroke-opacity=".15" />
+      <path d="M32 44H193L216 67V293" stroke={ink} stroke-opacity=".25" />
+      <path d="M20 56H178L204 82V308H20Z" fill="#11110f" stroke={ink} stroke-opacity=".65" />
+      <path d="M178 56V82H204" stroke={ink} stroke-opacity=".65" />
+      <text x="38" y="103" fill={muted} font-family="Commit Mono, monospace" font-size="14">{es ? 'DOCUMENTO' : 'DOCUMENT'}</text>
+      <path d="M38 119H123M38 128H169" stroke={ink} stroke-opacity=".25" />
+      {[151,203,255].map((y,i) => <g>
+        <rect x="35" y={y-10} width="150" height="29" fill={blue} fill-opacity=".08" />
+        <path d={`M41 ${y+10}h${[92,65,106][i]}`} stroke={ink} stroke-width="2" stroke-opacity=".65" />
+        <path d={`M35 ${y-3}v-7h7m136 0h7v7m0 15v7h-7M42 ${y+19}h-7v-7`} stroke={blue} stroke-width="1.5" />
+      </g>)}
+      <g stroke={blue} stroke-width="1.4" stroke-opacity=".65">
+        <path d="M185 155H232V178H276M185 207H232V178M185 259H247V193H276" stroke-dasharray="3 5" />
+        <path d="M360 181H394m-7-5 7 5-7 5" stroke-width="2" />
+      </g>
+      <rect x="276" y="139" width="84" height="84" fill={blue} fill-opacity=".07" stroke={blue} stroke-opacity=".65" />
+      <rect x="284" y="147" width="68" height="68" stroke={blue} stroke-opacity=".2" />
+      <text x="318" y="188" text-anchor="middle" fill={blue} font-family="Commit Mono, monospace" font-size="23">LLM</text>
+      <path d="M299 133v6m19-6v6m19-6v6m-38 84v6m19-6v6m19-6v6" stroke={blue} stroke-opacity=".65" />
+      <rect x="406" y="56" width="214" height="252" stroke={ink} stroke-opacity=".25" />
+      <path d="M406 104H620" stroke={ink} stroke-opacity=".2" />
+      <text x="422" y="87" fill={blue} font-family="Commit Mono, monospace" font-size="23">{'{ }'}</text>
+      <text x="478" y="86" fill={ink} font-family="Archivo, sans-serif" font-size="19" font-weight="600">{es ? 'Datos' : 'Data'}</text>
+      {[{y:135,label:es?'Nombre':'Name',type:es?'Texto':'Text'},{y:198,label:es?'Fecha':'Date',type:'YYYY-MM-DD'},{y:261,label:es?'Importe':'Amount',type:es?'Número':'Number'}].map(field => <g>
+        <text x="422" y={field.y} fill={muted} font-family="Archivo, sans-serif" font-size="16">{field.label}</text>
+        <text x="422" y={field.y+24} fill={blue} font-family="Commit Mono, monospace" font-size="17">{field.type}</text>
+        <path d={`M422 ${field.y+37}H604`} stroke={ink} stroke-opacity=".12" />
+      </g>)}
+    </>}
+  </svg>
+
+  <ol class:list={['grid grid-cols-3 border-t', dark ? 'border-paper/15' : 'border-ink/15']} aria-hidden="true">
+    {steps.map((step,index) => <li class:list={['min-w-0 px-3 py-4 sm:px-5', index > 0 && 'border-l', dark ? 'border-paper/15' : 'border-ink/15']}>
+      <span class:list={['mb-1.5 block font-mono text-[10px]', dark ? 'text-dark-electric' : 'text-electric']}>{String(index+1).padStart(2,'0')}</span>
+      <span class="block text-xs font-medium leading-snug sm:text-sm">{step}</span>
+    </li>)}
+  </ol>
+</div>

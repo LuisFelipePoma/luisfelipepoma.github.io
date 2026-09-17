@@ -2,6 +2,21 @@
 interface Props {scene:string}
 const {scene}=Astro.props;
 ---
-<picture class="block h-full w-full" data-matter-fallback aria-hidden="true">
-  <img class="block h-full w-full object-contain" src={'/matter-approved/' + scene + '.png'} alt="" loading={scene === 'terrain' ? 'eager' : 'lazy'} decoding="async" />
-</picture>
+<div class="h-full w-full" data-matter-fallback aria-hidden="true">
+  {scene === 'terrain' ? (
+    <svg class="block h-full w-full" viewBox="0 0 1100 363" focusable="false">
+      <defs>
+        <linearGradient id="terrain-edge-gradient">
+          <stop offset="80%" stop-color="white" />
+          <stop offset="96%" stop-color="black" />
+        </linearGradient>
+        <mask id="terrain-edge-mask">
+          <rect width="1100" height="363" fill="url(#terrain-edge-gradient)" />
+        </mask>
+      </defs>
+      <image href="/matter-approved/terrain.png" width="1100" height="363" mask="url(#terrain-edge-mask)" />
+    </svg>
+  ) : (
+    <img class="block h-full w-full object-contain" src={'/matter-approved/' + scene + '.png'} alt="" loading="lazy" decoding="async" />
+  )}
+</div>

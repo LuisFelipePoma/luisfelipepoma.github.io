@@ -6,14 +6,18 @@ import {approvedScenes,decodeApproved,fitPlane,samplePair,sectionTime,type Appro
 const MAX_QUIET=40;
 const vertexShader=`
 attribute vec3 aNext;
-uniform float uMix, uBound, uDpr, uSize;
+attribute float aTerrainX;
+uniform float uMix, uBound, uDpr, uSize, uTerrainWeight;
 uniform vec2 uViewport;
 uniform vec3 uPlane;
 uniform vec4 uQuiet[40];
 uniform int uQuietCount;
 varying vec2 vPixel;
+varying float vEdgeOpacity;
 void main(){
   vec3 p=mix(position,aNext,uMix)*uBound;
+  // Feather the source silhouette's cropped edge, following each point through the morph.
+  vEdgeOpacity=1.-smoothstep(.60,.89,aTerrainX)*uTerrainWeight;
   vec2 pixel=vec2(uPlane.x+p.x*uPlane.z,uPlane.y-p.z*uPlane.z);
   bool hidden=false;
   for(int i=0;i<40;i++){
@@ -29,12 +33,13 @@ void main(){
 const fragmentShader=`
 uniform vec2 uDark;
 varying vec2 vPixel;
+varying float vEdgeOpacity;
 void main(){
   float d=length(gl_PointCoord-vec2(.5));
   if(d>.5)discard;
   bool dark=vPixel.y>=uDark.x && vPixel.y<=uDark.y;
   vec3 ink=dark?vec3(.949,.937,.906):vec3(.067,.067,.059);
-  gl_FragColor=vec4(ink,(1.-smoothstep(.30,.5,d))*.85);
+  gl_FragColor=vec4(ink,(1.-smoothstep(.30,.5,d))*.85*vEdgeOpacity);
 }`;
 
 type Rect={left:number;top:number;width:number;height:number};
@@ -118,9 +123,11 @@ export async function initializeApprovedMatter() {
       const scene=new THREE.Scene(),camera=new THREE.Camera();
       const buffers=frames.map(array=>new THREE.BufferAttribute(array,3,true));
       geometry=new THREE.BufferGeometry();geometry.setAttribute('position',buffers[0]);geometry.setAttribute('aNext',buffers[1]);
+      const terrainX=Float32Array.from({length:manifest.variants[variant].count},(_,i)=>frames[0][i*3]/32767*manifest.bound);
+      geometry.setAttribute('aTerrainX',new THREE.BufferAttribute(terrainX,1));
       const quietUniform=Array.from({length:MAX_QUIET},()=>new THREE.Vector4());
       material=new THREE.ShaderMaterial({vertexShader,fragmentShader,transparent:true,depthTest:false,depthWrite:false,
-        uniforms:{uMix:{value:0},uBound:{value:manifest.bound},uDpr:{value:1},uSize:{value:variant==='mobile'?1.05:1.15},
+        uniforms:{uMix:{value:0},uBound:{value:manifest.bound},uDpr:{value:1},uSize:{value:variant==='mobile'?1.05:1.15},uTerrainWeight:{value:1},
           uViewport:{value:new THREE.Vector2(width,height)},uPlane:{value:new THREE.Vector3()},uQuiet:{value:quietUniform},uQuietCount:{value:0},uDark:{value:new THREE.Vector2(-2,-1)}}});
       const points=new THREE.Points(geometry,material);points.frustumCulled=false;scene.add(points);
       canvas.dataset.source='approved-matter.blend';canvas.dataset.pointCount=String(manifest.variants[variant].count);
@@ -135,6 +142,7 @@ export async function initializeApprovedMatter() {
         const a=Math.min(6,Math.floor(time)),b=Math.min(6,a+1),fraction=time-a;
         const plane=(i:number)=>fitPlane({...rects[i],top:rects[i].top-scrollY},manifest.scenes[i].aspect,height);
         const pa=plane(a),pb=plane(b),smooth=fraction*fraction*(3-2*fraction);
+        material.uniforms.uTerrainWeight.value=a===0?1-smooth:0;
         material.uniforms.uPlane.value.set(pa.x+(pb.x-pa.x)*smooth,pa.y+(pb.y-pa.y)*smooth,pa.scale+(pb.scale-pa.scale)*smooth);
         let count=0;
         for(const r of quietRects){

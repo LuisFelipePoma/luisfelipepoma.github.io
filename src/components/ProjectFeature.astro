@@ -13,7 +13,7 @@ const client = project.client === 'Open source' ? t.openSource : project.client;
 <article class:list={['project flex min-h-screen items-center border-t py-12 md:h-screen md:py-16', project.dark ? 'project-dark border-paper/24 bg-ink text-paper selection:bg-dark-electric selection:text-ink' : 'border-rule']} id={project.id} aria-labelledby={project.id + '-title'} data-scene={project.id} data-cloud-dark={project.dark ? 'true' : undefined}>
   <div class:list={[container,'project-grid relative z-2 flex flex-col gap-6 md:grid md:grid-cols-12']}>
     <div class:list={[metadata,'project-index hidden min-h-[104px] flex-col items-start gap-2 border-r pr-4 uppercase md:col-span-2 md:flex lg:pr-6',project.dark ? 'border-paper/24' : 'border-rule']} data-cloud-quiet><span class:list={['index-number text-lg font-semibold tabular-nums',project.dark ? 'text-dark-electric' : 'text-electric']}>{String(index + 1).padStart(2, '0')}</span><span>{index === 0 ? t.selected : client}</span></div>
-    <div class="project-body flex min-w-0 flex-col gap-8 md:col-span-5 md:pr-2 md:pl-4 lg:col-span-6 lg:pr-8 lg:pl-12">
+    <div class:list={['project-body flex min-w-0 flex-col gap-8 md:col-span-5 md:pr-2 md:pl-4 lg:pr-8', project.media.type === 'screenshot' ? 'lg:col-span-6 lg:pl-12' : 'lg:col-span-4 lg:pl-6']}>
     <div class="project-copy" data-cloud-quiet>
       <h3 class:list={[heading,'text-4xl leading-[1.08] md:text-[clamp(32px,2.86vw,44px)]']} id={project.id + '-title'}><span class:list={[metadata,'project-heading-index index-number mr-3 inline align-middle text-sm font-semibold md:hidden',project.dark ? 'text-dark-electric' : 'text-electric']} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{project.title[locale]}</h3>
       <p class:list={[metadata,'project-stack mt-3 text-[10px] md:text-xs']}>{client} · {project.stack.join(' / ')}</p>
@@ -23,7 +23,7 @@ const client = project.client === 'Open source' ? t.openSource : project.client;
     </div>
     <div class="project-matter-space h-48 w-full md:h-[clamp(220px,34vh,390px)]" data-cloud-zone aria-hidden="true"><MatterFallback scene={project.id} /></div>
     </div>
-    <figure class="project-figure mt-2 w-full min-w-0 self-stretch md:col-span-5 md:mt-0 md:self-center lg:col-span-4" data-cloud-quiet>
+    <figure class:list={['project-figure mt-2 w-full min-w-0 self-stretch md:col-span-5 md:mt-0 md:self-center', project.media.type === 'screenshot' ? 'lg:col-span-4' : 'lg:col-span-6']} data-cloud-quiet>
       <div class:list={['project-visual relative isolate w-full [&_img]:h-auto [&_img]:w-full', project.media.type === 'screenshot' && 'screenshot-visual border border-ink/30 bg-paper p-2 before:absolute before:-top-px before:-left-px before:size-1.5 before:bg-electric after:absolute after:-right-px after:-bottom-px after:size-1.5 after:bg-electric']}>
         {project.media.type === 'screenshot' && <div class="mb-2 flex items-center justify-between border-b border-rule pb-2 font-mono text-[10px] text-muted"><span>{String(index + 1).padStart(2, '0')} / {client}</span><span class="text-electric">{project.stack[0]}</span></div>}
         {project.media.type === 'screenshot' && project.media.image ? <Image src={project.media.image} alt={project.media.alt[locale]} widths={[640, 1120]} sizes="(max-width: 760px) 90vw, 38vw" format="webp" quality={85} loading="lazy" /> : <FlowDiagram variant={project.media.type as 'monitoring' | 'extraction'} locale={locale} alt={project.media.alt[locale]} />}
